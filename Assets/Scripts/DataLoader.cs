@@ -19,19 +19,22 @@ public class DataLoader : MonoBehaviour
     {
         searchButton.onClick.AddListener(OnRoomSearched);
 
-        LoadJson(_path);
+        LoadJson(_path, out roomsFile);
     }
 
-    public void LoadJson(string path)
+    public string LoadJson<T>(string path, out T variable)
     {
+        variable = default(T);
         try
         {
             string content = Resources.Load<TextAsset>(path).text;
-            roomsFile = RoomsFile.FromJson(content);
+            variable = JsonUtility.FromJson<T>(content);
+            return content;
         }
         catch (IOException e)
         {
             Debug.LogException(e);
+            return null;
         }
     }
 
