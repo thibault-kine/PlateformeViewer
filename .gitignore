@@ -34,6 +34,11 @@
 # Visual Studio cache directory
 .vs/
 
+# Autres IDE
+.idea/
+.vscode/
+*.pidb.meta
+
 # Gradle cache directory
 .gradle/
 
@@ -99,3 +104,6 @@ InitTestScene*.unity*
 /[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
 
 .DS_Store
+*.nupkg
+/packages
+/Packages/Microsoft.*
