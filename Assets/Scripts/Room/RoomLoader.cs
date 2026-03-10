@@ -1,16 +1,21 @@
-﻿using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography;
+﻿using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.InputSystem.HID;
 
+[ExecuteInEditMode]
 public class RoomLoader : MonoBehaviour
 {
-    [SerializeField] GameObject buildingManager;
+    [Tooltip("The building containing the rooms you want to setup")]
+    [SerializeField] GameObject building;
+
+    [SerializeField] LayerMask roomLayer;
+    [SerializeField] Material roomMaterial;
+
+    // A simple dictionnary:
+    //      Key: RoomApiResponses relative to the fetched json data
+    //      Val: The actual Transform of the room
     Dictionary<RoomApiResponse, Transform> dict = new();
+
 
     public void Setup()
     {
@@ -18,7 +23,7 @@ public class RoomLoader : MonoBehaviour
         List<RoomApiResponse> responses = new();
 
         // Get all the children of the building
-        foreach (Transform child in buildingManager.transform) 
+        foreach (Transform child in building.transform) 
             children.Add(child);
 
         // Get all the data in MockData/ and parse them into a RoomApiResponse object
@@ -50,14 +55,18 @@ public class RoomLoader : MonoBehaviour
         foreach (var (res, child) in dict)
         {
             // Set the layer to "Room", or else it won't do anything when clicked
-            child.gameObject.layer = LayerMask.GetMask("Room");
+            // A bit of dark magic there. Because apparently layers in Unity were too simple for the devs' taste :^)
+            child.gameObject.layer = Mathf.RoundToInt(Mathf.Log(roomLayer.value, 2));
+
+            var meshRenderer = child.GetComponent<MeshRenderer>();
+            meshRenderer.material = roomMaterial;
 
             // Add MeshCollider for more accuracy (and also setting the bounds is a pain in the ass)
             child.AddComponent<MeshCollider>();
 
             // Add the RoomStatusIndicator script
             var _rsi = child.AddComponent<RoomStatusIndicator>();
-            _rsi.SetRenderer(child.GetComponent<MeshRenderer>());
+            _rsi.SetRenderer(meshRenderer);
             _rsi.SetMaterialIndex(0);
             _rsi.SetVisualConfig(Resources.Load<VisualConfig>("Config/VisualConfig_"));
 
