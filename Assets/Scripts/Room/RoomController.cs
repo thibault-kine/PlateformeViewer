@@ -42,6 +42,12 @@ public class RoomController : MonoBehaviour
     /// <summary>Called by BuildingManager when this room is clicked.</summary>
     public void OnRoomClicked()
     {
-        //RoomInfoPanel.Instance?.Show(roomData);
+        RoomInfoPanel.Instance?.Show(roomData);
+    }
+
+
+    public void SetStatusIndicator(RoomStatusIndicator roomStatus)
+    {
+        statusIndicator = roomStatus;
     }
 }
