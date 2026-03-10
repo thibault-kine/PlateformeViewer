@@ -1,0 +1,90 @@
+using UnityEngine;
+using UnityEngine.InputSystem;
+
+/// <summary>
+/// Free-flight hover camera.
+///
+/// Controls:
+///   WASD / Arrow keys   — move forward / back / strafe
+///   Q / E               — move down / up
+///   Right-click + drag  — look around
+///   Scroll wheel        — dolly forward/back
+///   Left Shift          — speed boost
+/// </summary>
+public class CameraController : MonoBehaviour
+{
+    [SerializeField] BuildingConfigSO config;
+
+    float _pitch, _yaw;
+
+    void Start()
+    {
+        if (config != null)
+        {
+            transform.position = config.cameraStartPosition;
+            transform.eulerAngles = config.cameraStartRotation;
+        }
+
+        var euler = transform.eulerAngles;
+        _pitch = euler.x;
+        _yaw   = euler.y;
+    }
+
+    void Update()
+    {
+        HandleLook();
+        HandleMovement();
+    }
+
+    void HandleLook()
+    {
+        var mouse = Mouse.current;
+        if (mouse == null) return;
+
+        // Lock/unlock cursor while right-click is held
+        if (mouse.rightButton.wasPressedThisFrame)
+            Cursor.lockState = CursorLockMode.Locked;
+        if (mouse.rightButton.wasReleasedThisFrame)
+            Cursor.lockState = CursorLockMode.None;
+
+        if (mouse.rightButton.isPressed)
+        {
+            var delta = mouse.delta.ReadValue();
+            float sens = config != null ? config.mouseSensitivity : 1.5f;
+            _yaw   += delta.x * sens;
+            _pitch -= delta.y * sens;
+            _pitch  = Mathf.Clamp(_pitch, -89f, 89f);
+            transform.rotation = Quaternion.Euler(_pitch, _yaw, 0f);
+        }
+
+        // Scroll to dolly
+        float scroll = mouse.scroll.ReadValue().y;
+        if (Mathf.Abs(scroll) > 0.01f)
+        {
+            float speed = config != null ? config.scrollSpeed : 20f;
+            transform.position += transform.forward * (scroll * speed * Time.deltaTime);
+        }
+    }
+
+    void HandleMovement()
+    {
+        var kb = Keyboard.current;
+        if (kb == null) return;
+
+        float baseSpeed  = config != null ? config.cameraSpeed : 10f;
+        float boost      = config != null ? config.cameraBoostMultiplier : 3f;
+        float speed      = baseSpeed * (kb.shiftKey.isPressed ? boost : 1f);
+
+        Vector3 dir = Vector3.zero;
+
+        if (kb.wKey.isPressed || kb.upArrowKey.isPressed)    dir += transform.forward;
+        if (kb.sKey.isPressed || kb.downArrowKey.isPressed)  dir -= transform.forward;
+        if (kb.dKey.isPressed || kb.rightArrowKey.isPressed) dir += transform.right;
+        if (kb.aKey.isPressed || kb.leftArrowKey.isPressed)  dir -= transform.right;
+        if (kb.eKey.isPressed)                               dir += Vector3.up;
+        if (kb.qKey.isPressed)                               dir -= Vector3.up;
+
+        if (dir.sqrMagnitude > 0.001f)
+            transform.position += dir.normalized * (speed * Time.deltaTime);
+    }
+}

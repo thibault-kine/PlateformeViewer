@@ -1,0 +1,42 @@
+{
+  "timestamp": "2026-03-09T09:00:00Z",
+  "room": {
+    "code": "Vert-01",
+    "name": "Vert-01",
+    "capacity": 24,
+    "type": "Salle de cours",
+    "status": "occupied",
+    "current_event": {
+      "title": "Cours Architecture Logicielle",
+      "start": "2026-03-09T08:00:00Z",
+      "end": "2026-03-09T10:00:00Z",
+      "organizer": "M. Dupont"
+    },
+    "next_event": {
+      "title": "Cours Base de données",
+      "start": "2026-03-09T10:30:00Z",
+      "end": "2026-03-09T12:30:00Z",
+      "organizer": "Mme Martin"
+    },
+    "schedule_today": [
+      {
+        "title": "Cours Architecture Logicielle",
+        "start": "2026-03-09T08:00:00Z",
+        "end": "2026-03-09T10:00:00Z",
+        "organizer": "M. Dupont"
+      },
+      {
+        "title": "Cours Base de données",
+        "start": "2026-03-09T10:30:00Z",
+        "end": "2026-03-09T12:30:00Z",
+        "organizer": "Mme Martin"
+      },
+      {
+        "title": "Atelier Unity",
+        "start": "2026-03-09T14:00:00Z",
+        "end": "2026-03-09T17:00:00Z",
+        "organizer": "M. Garcia"
+      }
+    ]
+  }
+}

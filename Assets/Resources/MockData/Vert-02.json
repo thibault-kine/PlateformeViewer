@@ -1,0 +1,25 @@
+{
+  "timestamp": "2026-03-09T09:00:00Z",
+  "room": {
+    "code": "Vert-02",
+    "name": "Vert-02",
+    "capacity": 24,
+    "type": "Salle de cours",
+    "status": "free",
+    "current_event": null,
+    "next_event": {
+      "title": "Cours Réseaux",
+      "start": "2026-03-09T14:00:00Z",
+      "end": "2026-03-09T16:00:00Z",
+      "organizer": "M. Bernard"
+    },
+    "schedule_today": [
+      {
+        "title": "Cours Réseaux",
+        "start": "2026-03-09T14:00:00Z",
+        "end": "2026-03-09T16:00:00Z",
+        "organizer": "M. Bernard"
+      }
+    ]
+  }
+}
