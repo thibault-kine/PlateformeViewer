@@ -23,4 +23,7 @@ MonoBehaviour:
   scrollSpeed: 20
   cameraStartPosition: {x: 0, y: 30, z: -20}
   cameraStartRotation: {x: 45, y: 0, z: 0}
-  rooms: []
+  visualConfig: {fileID: 11400000, guid: 848e443cb74b647eabf0978084451bc1, type: 2}
+  rooms:
+  - {fileID: 11400000, guid: 9afa69d3330fe4263b63cd3bba9bdbee, type: 2}
+  - {fileID: 11400000, guid: 045c557e2d15e453190391d0d0ac5c19, type: 2}
