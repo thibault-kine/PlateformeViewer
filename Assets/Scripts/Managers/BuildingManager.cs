@@ -62,7 +62,7 @@ public class BuildingManager : MonoBehaviour
         else
         {
             // Clicked empty space — close panel
-            RoomInfoPanel.Instance?.Hide();
+            //RoomInfoPanel.Instance?.Hide();
         }
     }
 

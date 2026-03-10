@@ -3,26 +3,16 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class DataLoader : MonoBehaviour
+public static class DataLoader
 {
-    [SerializeField] string _path = "Data/rooms.json";
-    
-    [Header("UI Fields")]
-    [SerializeField] TMP_InputField idInput;
-    [SerializeField] TMP_Text dataText;
-    [SerializeField] Button searchButton;
-
-    RoomsFile roomsFile;
-
-
-    private void Awake()
-    {
-        searchButton.onClick.AddListener(OnRoomSearched);
-
-        LoadJson(_path, out roomsFile);
-    }
-
-    public string LoadJson<T>(string path, out T variable)
+    /// <summary>
+    /// Loads a JSON file from Resources and parses it into a variable.
+    /// </summary>
+    /// <typeparam name="T">A serializable type</typeparam>
+    /// <param name="path">Path inside the Resources folder</param>
+    /// <param name="variable">Parsed output object</param>
+    /// <returns>The raw JSON string</returns>
+    public static string LoadJson<T>(string path, out T variable)
     {
         variable = default(T);
         try
@@ -36,27 +26,5 @@ public class DataLoader : MonoBehaviour
             Debug.LogException(e);
             return null;
         }
-    }
-
-    public void OnRoomSearched()
-    {
-        if (roomsFile == null)
-        {
-            Debug.LogError("ERROR: 'roomsFile' is empty!");
-            return;
-        }
-
-        if (string.IsNullOrEmpty(idInput.text))
-        {
-            Debug.LogError("ERROR: Invalid input!");
-            return;
-        }
-
-        string data = roomsFile.GetByID(idInput.text).ToJson();
-
-        if (string.IsNullOrEmpty(data)) 
-            data = "No data found :(";
-
-        dataText.text = data;
     }
 }
