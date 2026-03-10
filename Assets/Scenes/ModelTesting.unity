@@ -119,66 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &234532463 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4398681917031189260, guid: 4532468c937aa4cf4bbea1e044f1a520, type: 3}
-  m_PrefabInstance: {fileID: 2106203306}
-  m_PrefabAsset: {fileID: 0}
---- !u!23 &234532465 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 2297051927153022802, guid: 4532468c937aa4cf4bbea1e044f1a520, type: 3}
-  m_PrefabInstance: {fileID: 2106203306}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &234532467
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 234532463}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7189fa5bae9b443d59be30b73e1b0685, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::RoomStatusIndicator
-  targetRenderer: {fileID: 234532465}
-  materialIndex: 0
-  visualConfig: {fileID: 11400000, guid: 848e443cb74b647eabf0978084451bc1, type: 2}
---- !u!114 &234532468
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 234532463}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5da279fdc8d4449b28f612e3dfcc2700, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::RoomController
-  roomData: {fileID: 11400000, guid: 045c557e2d15e453190391d0d0ac5c19, type: 2}
-  statusIndicator: {fileID: 234532467}
---- !u!65 &234532469
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 234532463}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.9999999, y: 1.9999998, z: 2.0000005}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &450096012
 GameObject:
   m_ObjectHideFlags: 0
@@ -777,7 +717,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8be1caf1992c45146bfd77f609f97907, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RoomLoader
-  building: {fileID: 2135619708}
+  buildingManager: {fileID: 2135619708}
 --- !u!1 &1629876905
 GameObject:
   m_ObjectHideFlags: 0
@@ -1090,15 +1030,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -2185907326209109926, guid: 4532468c937aa4cf4bbea1e044f1a520, type: 3}
       insertIndex: -1
       addedObject: {fileID: 674168723}
-    - targetCorrespondingSourceObject: {fileID: 4398681917031189260, guid: 4532468c937aa4cf4bbea1e044f1a520, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 234532469}
-    - targetCorrespondingSourceObject: {fileID: 4398681917031189260, guid: 4532468c937aa4cf4bbea1e044f1a520, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 234532468}
-    - targetCorrespondingSourceObject: {fileID: 4398681917031189260, guid: 4532468c937aa4cf4bbea1e044f1a520, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 234532467}
   m_SourcePrefab: {fileID: 100100000, guid: 4532468c937aa4cf4bbea1e044f1a520, type: 3}
 --- !u!1 &2135619708 stripped
 GameObject:
