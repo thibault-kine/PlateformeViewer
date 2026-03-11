@@ -34,6 +34,10 @@ public class RoomDataSO : ScriptableObject
         }
 
         var r = response.room;
+        roomCode     = r.code;
+        roomName     = r.name;
+        capacity     = r.capacity;
+        roomType     = r.type;
         status       = string.IsNullOrEmpty(r.status) ? "unknown" : r.status;
         lastUpdated  = response.timestamp;
         currentEvent = r.current_event;
