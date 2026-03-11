@@ -63,4 +63,20 @@ public class RoomStatusIndicator : MonoBehaviour
     {
         if (_runtimeMat != null) Destroy(_runtimeMat);
     }
+
+
+    public void SetRenderer(Renderer renderer)
+    {
+        targetRenderer = renderer;
+    }
+
+    public void SetMaterialIndex(int index)
+    {
+        materialIndex = index;
+    }
+
+    public void SetVisualConfig(VisualConfig config)
+    {
+        visualConfig = config;
+    }
 }

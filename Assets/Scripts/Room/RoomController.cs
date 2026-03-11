@@ -44,4 +44,10 @@ public class RoomController : MonoBehaviour
     {
         RoomInfoPanel.Instance?.Show(roomData);
     }
+
+
+    public void SetStatusIndicator(RoomStatusIndicator roomStatus)
+    {
+        statusIndicator = roomStatus;
+    }
 }
