@@ -17,7 +17,7 @@ MonoBehaviour:
   capacity: 24
   roomType: Salle de cours
   status: free
-  lastUpdated: 2026-03-09T09:00:00Z
+  lastUpdated: 
   currentEvent:
     title: 
     start: 

@@ -15,7 +15,7 @@ MonoBehaviour:
   roomCode: Vert-01
   roomName: Vert-01
   capacity: 24
-  roomType: Salle de cours
+  roomType: Salle de travail
   status: occupied
   lastUpdated: 2026-03-09T09:00:00Z
   currentEvent:

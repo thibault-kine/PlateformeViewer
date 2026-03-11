@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+using System.IO;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 
 [ExecuteInEditMode]
@@ -15,7 +17,6 @@ public class RoomLoader : MonoBehaviour
     //      Key: RoomApiResponses relative to the fetched json data
     //      Val: The actual Transform of the room
     Dictionary<RoomApiResponse, Transform> dict = new();
-
 
     public void Setup()
     {
@@ -54,7 +55,7 @@ public class RoomLoader : MonoBehaviour
     {
         foreach (var (res, child) in dict)
         {
-            // Set the layer to "Room", or else it won't do anything when clicked
+            // Sets the layer to "Room", or else it won't do anything when clicked
             // A bit of dark magic there. Because apparently layers in Unity were too simple for the devs' taste :^)
             child.gameObject.layer = Mathf.RoundToInt(Mathf.Log(roomLayer.value, 2));
 
@@ -62,18 +63,24 @@ public class RoomLoader : MonoBehaviour
             meshRenderer.material = roomMaterial;
 
             // Add MeshCollider for more accuracy (and also setting the bounds is a pain in the ass)
-            child.AddComponent<MeshCollider>();
+            child.GetOrAddComponent<MeshCollider>();
 
             // Add the RoomStatusIndicator script
-            var _rsi = child.AddComponent<RoomStatusIndicator>();
-            _rsi.SetRenderer(meshRenderer);
-            _rsi.SetMaterialIndex(0);
-            _rsi.SetVisualConfig(Resources.Load<VisualConfig>("Config/VisualConfig_"));
+            var _roomStatusIndicator = child.GetOrAddComponent<RoomStatusIndicator>();
+            _roomStatusIndicator.SetRenderer(meshRenderer);
+            _roomStatusIndicator.SetMaterialIndex(0);
+            _roomStatusIndicator.SetVisualConfig(Resources.Load<VisualConfig>("Config/VisualConfig_"));
 
             // Add the RoomController script
-            var _rc = child.AddComponent<RoomController>();
-            _rc.roomData = Resources.Load<RoomDataSO>($"RoomData/Room_{res.room.name}");
-            _rc.SetStatusIndicator(child.GetComponent<RoomStatusIndicator>());
+            var _roomController = child.GetOrAddComponent<RoomController>();
+            if (!File.Exists($"Assets/Resources/RoomData/Room_{res.room.name}"))
+            {
+                var _so = ScriptableObject.CreateInstance<RoomDataSO>();
+                _so.UpdateFromResponse(res);
+                AssetDatabase.CreateAsset(_so, $"Assets/Resources/RoomData/Room_{res.room.name}.asset");
+            }
+            _roomController.roomData = Resources.Load<RoomDataSO>($"RoomData/Room_{res.room.name}");
+            _roomController.SetStatusIndicator(child.GetComponent<RoomStatusIndicator>());
 
             Debug.Log($"Setup for {res.room.name} done!");
         }
