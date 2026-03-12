@@ -1,13 +1,14 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
 /// Updates a room mesh's material color to reflect its booking status.
-/// Attach to the room GameObject and assign the Renderer in the Inspector.
+/// Supports multiple renderers (e.g. when the room has several Cube children).
 /// If a VisualConfig is assigned, colors come from there — otherwise falls back to hardcoded defaults.
 /// </summary>
 public class RoomStatusIndicator : MonoBehaviour
 {
-    [SerializeField] Renderer targetRenderer;
+    [SerializeField] List<Renderer> targetRenderers = new();
     [SerializeField] int materialIndex = 0;
     [SerializeField] VisualConfig visualConfig;
 
@@ -17,28 +18,39 @@ public class RoomStatusIndicator : MonoBehaviour
     static readonly Color ColorUpcoming = new(0.95f, 0.61f, 0.07f); // #F39C12
     static readonly Color ColorUnknown  = new(0.50f, 0.55f, 0.55f); // #7F8C8D
 
-    Material _runtimeMat;
+    readonly List<Material> _runtimeMats  = new();
+    readonly List<Color>   _originalColors = new();
+
+    // How much the status color blends over the original material color (0 = invisible, 1 = full replace)
+    [Range(0f, 1f)] [SerializeField] float statusBlend = 0.05f;
 
     void Awake()
     {
-        if (targetRenderer == null)
-            targetRenderer = GetComponent<Renderer>();
-
-        if (targetRenderer != null)
+        // Fallback: if no renderers assigned, try this GameObject itself
+        if (targetRenderers.Count == 0)
         {
-            // Clone the material so we don't modify the shared asset
-            var mats = targetRenderer.materials;
-            _runtimeMat = new Material(mats[materialIndex]);
-            mats[materialIndex] = _runtimeMat;
-            targetRenderer.materials = mats;
+            var r = GetComponent<Renderer>();
+            if (r != null) targetRenderers.Add(r);
+        }
+
+        // Clone one material per renderer so we don't modify shared assets
+        foreach (var renderer in targetRenderers)
+        {
+            if (renderer == null) continue;
+            var mats = renderer.materials;
+            var cloned = new Material(mats[materialIndex]);
+            mats[materialIndex] = cloned;
+            renderer.materials = mats;
+            _runtimeMats.Add(cloned);
+            _originalColors.Add(cloned.color); // remember original albedo
         }
     }
 
     public void SetStatus(string status)
     {
-        if (_runtimeMat == null) return;
+        if (_runtimeMats.Count == 0) return;
 
-        Color c = visualConfig != null
+        Color statusColor = visualConfig != null
             ? visualConfig.GetStatusColor(status)
             : status switch
             {
@@ -48,26 +60,34 @@ public class RoomStatusIndicator : MonoBehaviour
                 _          => ColorUnknown
             };
 
-        _runtimeMat.color = c;
-
-        // Soft emission so the color reads on the dark scene background
-        if (_runtimeMat.IsKeywordEnabled("_EMISSION") ||
-            _runtimeMat.HasProperty("_EmissionColor"))
+        for (int i = 0; i < _runtimeMats.Count; i++)
         {
-            _runtimeMat.EnableKeyword("_EMISSION");
-            _runtimeMat.SetColor("_EmissionColor", c * 0.25f);
+            var mat = _runtimeMats[i];
+            if (mat == null) continue;
+
+            Color original = i < _originalColors.Count ? _originalColors[i] : Color.white;
+
+            // Subtle tint: blend original material color with status color
+            mat.color = Color.Lerp(original, statusColor, statusBlend);
+
+            // Soft emission for visibility in darker areas
+            if (mat.IsKeywordEnabled("_EMISSION") || mat.HasProperty("_EmissionColor"))
+            {
+                mat.EnableKeyword("_EMISSION");
+                mat.SetColor("_EmissionColor", statusColor * 0.08f);
+            }
         }
     }
 
     void OnDestroy()
     {
-        if (_runtimeMat != null) Destroy(_runtimeMat);
+        foreach (var mat in _runtimeMats)
+            if (mat != null) Destroy(mat);
     }
 
-
-    public void SetRenderer(Renderer renderer)
+    public void SetRenderers(List<Renderer> renderers)
     {
-        targetRenderer = renderer;
+        targetRenderers = renderers;
     }
 
     public void SetMaterialIndex(int index)

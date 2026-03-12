@@ -1,0 +1,21 @@
+{
+  "timestamp": "2026-03-11T09:00:00Z",
+  "room": {
+    "code": "Vert-05",
+    "name": "Vert-05",
+    "capacity": 24,
+    "type": "Salle de travail",
+    "status": "upcoming",
+    "current_event": { "title": "", "start": "", "end": "", "organizer": "" },
+    "next_event": {
+      "title": "Cours Réseaux",
+      "start": "2026-03-11T09:20:00Z",
+      "end": "2026-03-11T11:20:00Z",
+      "organizer": "M. Dupont"
+    },
+    "schedule_today": [
+      { "title": "Cours Réseaux", "start": "2026-03-11T09:20:00Z", "end": "2026-03-11T11:20:00Z", "organizer": "M. Dupont" },
+      { "title": "Cours Cybersécurité", "start": "2026-03-11T13:00:00Z", "end": "2026-03-11T15:00:00Z", "organizer": "M. Garcia" }
+    ]
+  }
+}

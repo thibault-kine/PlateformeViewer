@@ -145,7 +145,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 450096012}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f20dcea05855f4a6a95c74045a335bc8, type: 3}
+  m_Script: {fileID: 115000scm-history-item:/Users/ousse/Desktop/LA_PLATEFORME/IMMERSIVE/UNITY/PlateformeViewer?%7B%22repositoryId%22%3A%22scm0%22%2C%22historyItemId%22%3A%22b35c607b0e7498e132bbc0eccb772bbaa17d1d49%22%2C%22historyItemParentId%22%3A%22fdf99f4838931a900d1417fd5186ac0cd986ee2f%22%2C%22historyItemDisplayId%22%3A%22b35c607%22%7D00, guid: f20dcea05855f4a6a95c74045a335bc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneStyler
   config: {fileID: 11400000, guid: 848e443cb74b647eabf0978084451bc1, type: 2}

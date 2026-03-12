@@ -1,0 +1,21 @@
+{
+  "timestamp": "2026-03-11T09:00:00Z",
+  "room": {
+    "code": "Bleu-12",
+    "name": "Bleu-12",
+    "capacity": 24,
+    "type": "Salle de travail",
+    "status": "free",
+    "current_event": { "title": "", "start": "", "end": "", "organizer": "" },
+    "next_event": {
+      "title": "Cours Intelligence Artificielle",
+      "start": "2026-03-11T10:30:00Z",
+      "end": "2026-03-11T12:30:00Z",
+      "organizer": "M. Ahmed"
+    },
+    "schedule_today": [
+      { "title": "Cours Intelligence Artificielle", "start": "2026-03-11T10:30:00Z", "end": "2026-03-11T12:30:00Z", "organizer": "M. Ahmed" },
+      { "title": "Formation Agile", "start": "2026-03-11T14:00:00Z", "end": "2026-03-11T17:00:00Z", "organizer": "Mme Dumont" }
+    ]
+  }
+}
