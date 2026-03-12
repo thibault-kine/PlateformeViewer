@@ -13,8 +13,10 @@ public class VisualConfig : ScriptableObject
     public Color backgroundColor = new(0.051f, 0.106f, 0.165f); // #0D1B2A
 
     [Header("Ambient Lighting")]
-    public Color ambientColor = new(0.04f, 0.07f, 0.11f);       // very dim cool blue
-    [Range(0f, 2f)] public float ambientIntensity = 0.3f;
+    public Color ambientColor = new(0.212f, 0.227f, 0.259f);    // Unity default grey
+    [Range(0f, 2f)] public float ambientIntensity = 0.25f;
+    [Range(0f, 2f)] public float sunIntensity = 1f;
+    public Color sunColor = Color.white;
 
     [Header("Building Materials")]
     [Tooltip("Walls / container exteriors — cool white-blue")]
