@@ -38,9 +38,11 @@ public class SceneStyler : MonoBehaviour
         RenderSettings.ambientLight     = config.ambientColor * config.ambientIntensity;
         RenderSettings.fog              = false;
 
-        // Remove directional light influence — flat look
-        // If your scene has a Directional Light, you can disable it here:
         var sun = RenderSettings.sun;
-        if (sun != null) sun.intensity = 0.05f;
+        if (sun != null)
+        {
+            sun.intensity = config.sunIntensity;
+            sun.color     = config.sunColor;
+        }
     }
 }
