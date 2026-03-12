@@ -1,0 +1,27 @@
+{
+  "timestamp": "2026-03-11T09:00:00Z",
+  "room": {
+    "code": "Bleu-11",
+    "name": "Bleu-11",
+    "capacity": 24,
+    "type": "Salle de travail",
+    "status": "occupied",
+    "current_event": {
+      "title": "Cours Cybersécurité",
+      "start": "2026-03-11T08:00:00Z",
+      "end": "2026-03-11T10:00:00Z",
+      "organizer": "M. Ahmed"
+    },
+    "next_event": {
+      "title": "Cours Réseaux",
+      "start": "2026-03-11T10:30:00Z",
+      "end": "2026-03-11T12:30:00Z",
+      "organizer": "M. Dupont"
+    },
+    "schedule_today": [
+      { "title": "Cours Cybersécurité", "start": "2026-03-11T08:00:00Z", "end": "2026-03-11T10:00:00Z", "organizer": "M. Ahmed" },
+      { "title": "Cours Réseaux", "start": "2026-03-11T10:30:00Z", "end": "2026-03-11T12:30:00Z", "organizer": "M. Dupont" },
+      { "title": "Cours Python", "start": "2026-03-11T14:00:00Z", "end": "2026-03-11T16:00:00Z", "organizer": "M. Bernard" }
+    ]
+  }
+}
