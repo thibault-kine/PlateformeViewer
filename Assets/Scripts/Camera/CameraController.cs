@@ -1,3 +1,4 @@
+using TreeEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -14,6 +15,7 @@ using UnityEngine.InputSystem;
 public class CameraController : MonoBehaviour
 {
     [SerializeField] BuildingConfigSO config;
+    [SerializeField] BoxCollider boundsCollider;
 
     float _pitch, _yaw;
 
@@ -34,6 +36,19 @@ public class CameraController : MonoBehaviour
     {
         HandleLook();
         HandleMovement();
+    }
+
+    void LateUpdate()
+    {
+        Vector3 pos = transform.position;   
+        Vector3 min = boundsCollider.bounds.min;
+        Vector3 max = boundsCollider.bounds.max;
+
+        pos.x = Mathf.Clamp(pos.x, min.x, max.x);
+        pos.y = Mathf.Clamp(pos.y, min.y, max.y);
+        pos.z = Mathf.Clamp(pos.z, min.z, max.z);
+
+        transform.position = pos;
     }
 
     void HandleLook()

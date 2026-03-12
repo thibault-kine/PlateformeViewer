@@ -75,7 +75,7 @@ public class RoomLoader : MonoBehaviour
             // Collect only MeshRenderers on children whose name starts with "Cube"
             var meshRenderers = new List<MeshRenderer>();
             foreach (var mr in child.GetComponentsInChildren<MeshRenderer>())
-                if (mr.gameObject.name.StartsWith("Cube", System.StringComparison.OrdinalIgnoreCase))
+                if (!mr.gameObject.name.StartsWith("Cube", System.StringComparison.OrdinalIgnoreCase))
                     meshRenderers.Add(mr);
             if (meshRenderers.Count == 0)
             {
