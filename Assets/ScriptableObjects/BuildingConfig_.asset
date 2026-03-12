@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 940ca977952ec43eba63c2fe6e5c2cbc, type: 3}
+  m_Name: BuildingConfig_
+  m_EditorClassIdentifier: Assembly-CSharp::BuildingConfigSO
+  buildingName: La Plateforme
+  apiBaseUrl: 
+  apiBaseUrl2: 
+  useMockData: 1
+  refreshInterval: 60
+  cameraSpeed: 10
+  cameraBoostMultiplier: 3
+  mouseSensitivity: 1.5
+  scrollSpeed: 20
+  cameraStartPosition: {x: 0, y: 30, z: -20}
+  cameraStartRotation: {x: 45, y: 0, z: 0}
+  visualConfig: {fileID: 11400000, guid: 848e443cb74b647eabf0978084451bc1, type: 2}
+  rooms:
+  - {fileID: 11400000, guid: 9afa69d3330fe4263b63cd3bba9bdbee, type: 2}
+  - {fileID: 11400000, guid: 045c557e2d15e453190391d0d0ac5c19, type: 2}
+  - {fileID: 11400000, guid: 51ffa87fe701d4703a8ddddd4f2261ca, type: 2}
