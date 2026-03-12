@@ -1,0 +1,26 @@
+{
+  "timestamp": "2026-03-11T09:00:00Z",
+  "room": {
+    "code": "Extra-Scolaire - Salle 3",
+    "name": "Extra-Scolaire - Salle 3",
+    "capacity": 50,
+    "type": "Salle de travail",
+    "status": "occupied",
+    "current_event": {
+      "title": "Atelier Musique",
+      "start": "2026-03-11T08:00:00Z",
+      "end": "2026-03-11T10:00:00Z",
+      "organizer": "M. Dupont"
+    },
+    "next_event": {
+      "title": "Cours Dessin",
+      "start": "2026-03-11T10:30:00Z",
+      "end": "2026-03-11T12:30:00Z",
+      "organizer": "Mme Leroy"
+    },
+    "schedule_today": [
+      { "title": "Atelier Musique", "start": "2026-03-11T08:00:00Z", "end": "2026-03-11T10:00:00Z", "organizer": "M. Dupont" },
+      { "title": "Cours Dessin", "start": "2026-03-11T10:30:00Z", "end": "2026-03-11T12:30:00Z", "organizer": "Mme Leroy" }
+    ]
+  }
+}

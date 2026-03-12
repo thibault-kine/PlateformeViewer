@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be38ee44e5a3b4b5abb8484ee42e46cb, type: 3}
+  m_Name: Room_Rouge-21
+  m_EditorClassIdentifier: Assembly-CSharp::RoomDataSO
+  roomCode: Rouge-21
+  roomName: Rouge-21
+  capacity: 24
+  roomType: Salle de travail
+  status: occupied
+  lastUpdated: 2026-03-11T09:00:00Z
+  currentEvent:
+    title: "Cours Cybers\xE9curit\xE9 Avanc\xE9"
+    start: 2026-03-11T08:00:00Z
+    end: 2026-03-11T10:00:00Z
+    organizer: M. Ahmed
+  nextEvent:
+    title: Lab Ethical Hacking
+    start: 2026-03-11T10:30:00Z
+    end: 2026-03-11T12:30:00Z
+    organizer: M. Ahmed
+  scheduleToday:
+  - title: "Cours Cybers\xE9curit\xE9 Avanc\xE9"
+    start: 2026-03-11T08:00:00Z
+    end: 2026-03-11T10:00:00Z
+    organizer: M. Ahmed
+  - title: Lab Ethical Hacking
+    start: 2026-03-11T10:30:00Z
+    end: 2026-03-11T12:30:00Z
+    organizer: M. Ahmed
+  - title: Cours Intelligence Artificielle
+    start: 2026-03-11T14:00:00Z
+    end: 2026-03-11T17:00:00Z
+    organizer: Mme Chen

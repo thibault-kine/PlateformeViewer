@@ -1,0 +1,21 @@
+{
+  "timestamp": "2026-03-11T09:00:00Z",
+  "room": {
+    "code": "Bleu-16",
+    "name": "Bleu-16",
+    "capacity": 8,
+    "type": "Salle de réunion",
+    "status": "occupied",
+    "current_event": {
+      "title": "Réunion Finance",
+      "start": "2026-03-11T08:00:00Z",
+      "end": "2026-03-11T09:30:00Z",
+      "organizer": "Mme Dumont"
+    },
+    "next_event": { "title": "", "start": "", "end": "", "organizer": "" },
+    "schedule_today": [
+      { "title": "Réunion Finance", "start": "2026-03-11T08:00:00Z", "end": "2026-03-11T09:30:00Z", "organizer": "Mme Dumont" },
+      { "title": "Bilan mensuel", "start": "2026-03-11T15:00:00Z", "end": "2026-03-11T17:00:00Z", "organizer": "M. Ahmed" }
+    ]
+  }
+}

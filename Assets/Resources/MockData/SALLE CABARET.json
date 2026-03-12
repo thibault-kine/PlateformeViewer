@@ -1,0 +1,21 @@
+{
+  "timestamp": "2026-03-11T09:00:00Z",
+  "room": {
+    "code": "SALLE CABARET",
+    "name": "SALLE CABARET",
+    "capacity": 100,
+    "type": "Grande salle",
+    "status": "occupied",
+    "current_event": {
+      "title": "Présentation de projets",
+      "start": "2026-03-11T08:00:00Z",
+      "end": "2026-03-11T12:00:00Z",
+      "organizer": "Mme Martin"
+    },
+    "next_event": { "title": "", "start": "", "end": "", "organizer": "" },
+    "schedule_today": [
+      { "title": "Présentation de projets", "start": "2026-03-11T08:00:00Z", "end": "2026-03-11T12:00:00Z", "organizer": "Mme Martin" },
+      { "title": "Remise des diplômes", "start": "2026-03-11T14:00:00Z", "end": "2026-03-11T17:00:00Z", "organizer": "M. Dupont" }
+    ]
+  }
+}
