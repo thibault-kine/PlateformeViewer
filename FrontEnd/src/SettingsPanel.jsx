@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 const DEFAULTS = {
   mouseSensitivity: 1.5,
@@ -81,6 +81,18 @@ function ActionBtn({ onClick, children }) {
 export default function SettingsPanel({ sendMessage, isLoaded }) {
   const [open, setOpen]         = useState(false);
   const [settings, setSettings] = useState({ ...DEFAULTS });
+  const drawerRef               = useRef(null);
+
+  useEffect(() => {
+    if (!open) return;
+    const handleClick = (e) => {
+      if (drawerRef.current && !drawerRef.current.contains(e.target)) {
+        setOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClick);
+    return () => document.removeEventListener('mousedown', handleClick);
+  }, [open]);
 
   // Single guarded send helper
   const send = (method, value) => {
@@ -121,6 +133,7 @@ export default function SettingsPanel({ sendMessage, isLoaded }) {
 
       {/* Drawer */}
       <div
+        ref={drawerRef}
         className={`fixed top-0 right-0 h-full z-[250] w-80 transition-transform duration-300 ease-in-out ${
           open ? 'translate-x-0' : 'translate-x-full'
         }`}
