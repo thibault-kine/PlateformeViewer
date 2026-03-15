@@ -55,7 +55,6 @@ public class MobileInputManager : MonoBehaviour
 
     void Awake()
     {
-        Instance = this;
         EnhancedTouchSupport.Enable();
     }
 
@@ -63,10 +62,13 @@ public class MobileInputManager : MonoBehaviour
     {
         if (Touchscreen.current == null)
         {
+            // Not a touch device — leave Instance null so BuildingManager
+            // keeps using its normal mouse-based click detection.
             enabled = false;
             return;
         }
 
+        Instance = this;
         _cam = FindFirstObjectByType<CameraController>();
         _bm  = FindFirstObjectByType<BuildingManager>();
 
