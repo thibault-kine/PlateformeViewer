@@ -74,9 +74,15 @@ public class RoomLoader : MonoBehaviour
 
             // Collect only MeshRenderers on children whose name starts with "Cube"
             var meshRenderers = new List<MeshRenderer>();
-            foreach (var mr in child.GetComponentsInChildren<MeshRenderer>())
-                if (mr.gameObject.name.StartsWith("Cube", System.StringComparison.OrdinalIgnoreCase))
+            foreach (var mr in child.GetComponentsInChildren<MeshRenderer>()) 
+            {
+                if (mr.gameObject.name.StartsWith("Cube", System.StringComparison.OrdinalIgnoreCase) && 
+                    !mr.gameObject.name.EndsWith("OpenSpace", System.StringComparison.OrdinalIgnoreCase))
+                {
                     meshRenderers.Add(mr);
+                }
+            }
+
             if (meshRenderers.Count == 0)
             {
                 Debug.LogWarning($"[RoomLoader] No MeshRenderer found in '{child.name}' or its children — skipping.");
@@ -89,6 +95,7 @@ public class RoomLoader : MonoBehaviour
             {
                 mr.material = roomMaterial;
                 mr.gameObject.GetOrAddComponent<MeshCollider>();
+                Debug.Log($"Mesh Collider added to gameobject {mr.gameObject.name}");
                 mr.gameObject.layer = roomLayerIndex; // raycast must hit this layer
             }
 

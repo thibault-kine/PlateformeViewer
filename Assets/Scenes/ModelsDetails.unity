@@ -11573,6 +11573,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraController
   config: {fileID: 11400000, guid: 423f6f91a1ff045318f2308d6ba4a039, type: 2}
+  boundsCollider: {fileID: 690820865}
 --- !u!114 &870209979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32293,6 +32294,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 870209977}
+  - {fileID: 690820866}
   - {fileID: 972644926}
   - {fileID: 1344492977}
   - {fileID: 1725632939}
