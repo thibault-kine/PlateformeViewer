@@ -198,8 +198,12 @@ export default function SettingsPanel({ sendMessage, isLoaded }) {
               {/* ── CAMÉRA ── */}
               <SectionLabel>Caméra</SectionLabel>
               <div className="flex flex-col gap-6 touch:gap-4">
+                {/* Label adapts: mouse on desktop, joystick on touch */}
                 <SliderRow
-                  label="Sensibilité souris"
+                  label={<>
+                    <span className="touch:hidden">Sensibilité souris</span>
+                    <span className="hidden touch:inline">Sensibilité joystick</span>
+                  </>}
                   value={settings.mouseSensitivity}
                   min={0.1} max={5} step={0.1}
                   onChange={handleSlider('mouseSensitivity', 'SetMouseSensitivity')}
@@ -210,12 +214,15 @@ export default function SettingsPanel({ sendMessage, isLoaded }) {
                   min={1} max={30} step={0.5}
                   onChange={handleSlider('cameraSpeed', 'SetCameraSpeed')}
                 />
-                <SliderRow
-                  label="Vitesse scroll"
-                  value={settings.scrollSpeed}
-                  min={1} max={60} step={1}
-                  onChange={handleSlider('scrollSpeed', 'SetScrollSpeed')}
-                />
+                {/* Scroll speed is desktop-only (no scroll wheel on mobile) */}
+                <div className="touch:hidden">
+                  <SliderRow
+                    label="Vitesse scroll"
+                    value={settings.scrollSpeed}
+                    min={1} max={60} step={1}
+                    onChange={handleSlider('scrollSpeed', 'SetScrollSpeed')}
+                  />
+                </div>
               </div>
 
               <Divider />
