@@ -1,20 +1,100 @@
-*, *::before, *::after {
-  box-sizing: border-box;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 0;
+    background: #020b1a;
+    overflow: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 }
 
-body {
-  margin: 0;
-  padding: 0;
-  background: #020b1a;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  overflow: hidden;
-}
+/* ── Custom utilities (complex values Tailwind can't express as classes) ── */
+@layer utilities {
+  /* Animated grid backgrounds */
+  .bg-grid-neon {
+    background-image:
+      linear-gradient(rgba(0, 140, 255, 0.07) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 140, 255, 0.07) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+  .bg-grid-modal {
+    background-image:
+      linear-gradient(rgba(0, 140, 255, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 140, 255, 0.04) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  /* Text shadows */
+  .text-shadow-neon {
+    text-shadow:
+      0 0 10px rgba(0, 180, 255, 0.9),
+      0 0 30px rgba(0, 100, 255, 0.6),
+      0 0 60px rgba(0, 60, 200, 0.3);
+  }
+  .text-shadow-neon-sm {
+    text-shadow:
+      0 0 8px rgba(0, 180, 255, 0.8),
+      0 0 20px rgba(0, 100, 255, 0.5);
+  }
+
+  /* Neon box shadows */
+  .shadow-neon-modal {
+    box-shadow:
+      0 0 50px rgba(0, 100, 255, 0.2),
+      inset 0 0 40px rgba(0, 20, 70, 0.4);
+  }
+  .shadow-neon-key {
+    box-shadow:
+      0 0 10px rgba(0, 140, 255, 0.25),
+      inset 0 0 10px rgba(0, 40, 120, 0.3);
+  }
+  .shadow-neon-fab {
+    box-shadow:
+      0 0 14px rgba(0, 140, 255, 0.4),
+      inset 0 0 10px rgba(0, 60, 150, 0.2);
+  }
+  .shadow-neon-fab-hover {
+    box-shadow: 0 0 24px rgba(0, 200, 255, 0.6);
+  }
+  .shadow-neon-btn {
+    box-shadow:
+      0 0 12px rgba(0, 140, 255, 0.2),
+      inset 0 0 12px rgba(0, 60, 150, 0.1);
+  }
+  .shadow-neon-btn-hover {
+    box-shadow:
+      0 0 20px rgba(0, 160, 255, 0.5),
+      inset 0 0 20px rgba(0, 80, 200, 0.15);
+  }
+  .shadow-neon-bar {
+    box-shadow:
+      0 0 8px rgba(0, 180, 255, 0.8),
+      0 0 20px rgba(0, 100, 255, 0.5);
+  }
+  .shadow-neon-bar-tip {
+    box-shadow:
+      0 0 6px 3px rgba(0, 200, 255, 1),
+      0 0 14px 6px rgba(0, 120, 255, 0.7);
+  }
+
+  /* Loading bar fill gradient */
+  .bg-bar-fill {
+    background: linear-gradient(90deg, #0055ff 0%, #00cfff 60%, #ffffff 100%);
+  }
+
+  /* Radial glow blob */
+  .bg-radial-glow {
+    background: radial-gradient(
+      circle,
+      rgba(0, 100, 255, 0.18) 0%,
+      rgba(0, 40, 120, 0.08) 50%,
+      transparent 70%
+    );
+  }
 }

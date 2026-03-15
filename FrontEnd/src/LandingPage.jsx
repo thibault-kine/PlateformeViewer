@@ -2,9 +2,8 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import { useGLTF, Environment } from '@react-three/drei';
 import { useRef, useEffect, useCallback } from 'react';
 import * as THREE from 'three';
-import './LandingPage.css';
 
-// ── Logo mesh: loads GLB and applies neon material ──────────────────────────
+// ── Logo mesh ──────────────────────────────────────────────────────────────
 function Logo({ mousePos }) {
   const { scene } = useGLTF('/LaPlateformeLogo.glb');
   const groupRef = useRef();
@@ -14,8 +13,8 @@ function Logo({ mousePos }) {
     scene.traverse((child) => {
       if (child.isMesh) {
         child.material = new THREE.MeshStandardMaterial({
-          color: new THREE.Color('#00cfff'),
-          emissive: new THREE.Color('#0055ff'),
+          color: new THREE.Color('#00d4ff'),
+          emissive: new THREE.Color('#0066ff'),
           emissiveIntensity: 2.0,
           metalness: 0.9,
           roughness: 0.05,
@@ -27,14 +26,11 @@ function Logo({ mousePos }) {
 
   useFrame((_, delta) => {
     if (!groupRef.current) return;
-
-    // Continuous slow auto-rotation
     autoRotation.current += delta * 0.4;
 
     const targetY = mousePos.current.x !== 0 || mousePos.current.y !== 0
       ? mousePos.current.x * Math.PI * 0.5
       : autoRotation.current;
-
     const targetX = -mousePos.current.y * Math.PI * 0.18;
 
     groupRef.current.rotation.y += (targetY - groupRef.current.rotation.y) * 0.04;
@@ -42,9 +38,7 @@ function Logo({ mousePos }) {
   });
 
   return (
-    // Outer group handles mouse/auto rotation
     <group ref={groupRef}>
-      {/* Inner group corrects Blender Z-up → Three.js Y-up axis */}
       <group rotation={[Math.PI / 2, 0, 0]} scale={3}>
         <primitive object={scene} />
       </group>
@@ -52,20 +46,17 @@ function Logo({ mousePos }) {
   );
 }
 
-// ── Landing page component ────────────────────────────────────────────────────
+// ── Landing page ───────────────────────────────────────────────────────────
 export default function LandingPage({ loadingProgression, isLoaded, onEnter }) {
   const mousePos = useRef({ x: 0, y: 0 });
-  const isInteracting = useRef(false);
 
   const handleMouseMove = useCallback((e) => {
-    const x = (e.clientX / window.innerWidth) * 2 - 1;
-    const y = (e.clientY / window.innerHeight) * 2 - 1;
-    mousePos.current = { x, y };
-    isInteracting.current = true;
-
-    clearTimeout(handleMouseMove._timeout);
-    handleMouseMove._timeout = setTimeout(() => {
-      isInteracting.current = false;
+    mousePos.current = {
+      x: (e.clientX / window.innerWidth)  * 2 - 1,
+      y: (e.clientY / window.innerHeight) * 2 - 1,
+    };
+    clearTimeout(handleMouseMove._t);
+    handleMouseMove._t = setTimeout(() => {
       mousePos.current = { x: 0, y: 0 };
     }, 3000);
   }, []);
@@ -73,56 +64,68 @@ export default function LandingPage({ loadingProgression, isLoaded, onEnter }) {
   const pct = Math.round(loadingProgression * 100);
 
   return (
-    <div className="landing-root" onMouseMove={handleMouseMove}>
+    <div
+      className="fixed inset-0 bg-navy-950 flex flex-col items-center justify-center overflow-hidden"
+      onMouseMove={handleMouseMove}
+    >
+      {/* Animated grid */}
+      <div className="absolute inset-0 bg-grid-neon animate-grid-drift" />
 
-      {/* Animated grid background */}
-      <div className="landing-grid" />
+      {/* Radial glow blob */}
+      <div className="absolute left-1/2 top-[30%] w-[600px] h-[600px] rounded-full bg-radial-glow pointer-events-none animate-glow-pulse" />
 
-      {/* Radial glow behind logo */}
-      <div className="landing-glow" />
-
-      {/* Three.js canvas for GLB logo */}
-      <div className="landing-canvas-wrap">
-        <Canvas
-          camera={{ position: [0, 0, 4], fov: 45 }}
-          gl={{ antialias: true, alpha: true }}
-        >
+      {/* Three.js canvas */}
+      <div className="relative z-10 w-[420px] h-[380px] cursor-grab drop-shadow-[0_0_30px_rgba(0,160,255,0.5)]">
+        <Canvas camera={{ position: [0, 0, 4], fov: 45 }} gl={{ antialias: true, alpha: true }}>
           <ambientLight intensity={0.3} color="#0033aa" />
-          <pointLight position={[3, 3, 3]} intensity={8} color="#00aaff" />
+          <pointLight position={[3, 3, 3]}   intensity={8} color="#00aaff" />
           <pointLight position={[-3, -2, 2]} intensity={5} color="#ffffff" />
-          <pointLight position={[0, -3, 1]} intensity={3} color="#0055ff" />
+          <pointLight position={[0, -3, 1]}  intensity={3} color="#0055ff" />
           <Logo mousePos={mousePos} />
           <Environment preset="night" />
         </Canvas>
       </div>
 
-      {/* Bottom section: title + loading bar */}
-      <div className="landing-bottom">
-        <h1 className="landing-title">LA PLATEFORME</h1>
-        <p className="landing-subtitle">VIEWER IMMERSIF · MARSEILLE</p>
+      {/* Bottom section */}
+      <div className="relative z-10 flex flex-col items-center gap-3 -mt-2">
 
-        <div className="loading-section">
-          <div className="loading-bar-track">
+        {/* Title */}
+        <h1 className="m-0 font-mono text-[3.8rem] font-bold tracking-[0.35em] text-white text-shadow-neon">
+          LA PLATEFORME
+        </h1>
+        <p className="m-0 font-mono text-[1rem] tracking-[0.3em] text-[rgba(0,180,255,0.6)] uppercase">
+          Viewer Immersif · Marseille
+        </p>
+
+        {/* Loading bar */}
+        <div className="w-[560px] flex flex-col gap-1.5 mt-2">
+          <div className="relative w-full h-1 bg-[rgba(0,80,180,0.25)] rounded-sm overflow-visible shadow-[0_0_0_1px_rgba(0,120,255,0.15),inset_0_0_6px_rgba(0,40,120,0.4)]">
+            {/* Fill */}
             <div
-              className="loading-bar-fill"
+              className="h-full rounded-sm bg-bar-fill shadow-neon-bar transition-[width] duration-300"
               style={{ width: `${pct}%` }}
             />
+            {/* Tip glow */}
             <div
-              className="loading-bar-glow"
+              className="absolute top-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-white shadow-neon-bar-tip transition-[left] duration-300"
               style={{ left: `${pct}%` }}
             />
           </div>
 
-          <div className="loading-labels">
-            <span className="loading-status">
+          <div className="flex justify-between items-center font-mono text-[0.65rem] tracking-[0.2em]">
+            <span className={`text-[rgba(0,180,255,0.7)] ${!isLoaded ? 'animate-blink' : ''}`}>
               {isLoaded ? 'PRÊT' : 'CHARGEMENT...'}
             </span>
-            <span className="loading-pct">{pct}%</span>
+            <span className="text-[rgba(255,255,255,0.5)]">{pct}%</span>
           </div>
         </div>
 
+        {/* Enter button */}
         {isLoaded && (
-          <button className="enter-btn" onClick={onEnter}>
+          <button
+            onClick={onEnter}
+            className="mt-4 px-12 py-2.5 bg-transparent border border-[rgba(0,180,255,0.6)] rounded-sm font-mono text-[0.8rem] tracking-[0.35em] text-neon-blue cursor-pointer shadow-neon-btn hover:bg-[rgba(0,120,255,0.12)] hover:border-[rgba(0,220,255,0.9)] hover:text-white hover:shadow-neon-btn-hover active:scale-95 transition-all duration-200 animate-enter-appear"
+          >
             ENTRER
           </button>
         )}

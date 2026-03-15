@@ -18,9 +18,9 @@ export default function App() {
   };
 
   return (
-    <div style={{ width: '100vw', height: '100vh', overflow: 'hidden', background: '#020b1a' }}>
+    <div className="w-screen h-screen overflow-hidden bg-navy-950">
       {/* Unity always mounts so it starts loading immediately */}
-      <div style={{ width: '100%', height: '100%', opacity: visible ? 0 : 1, transition: 'opacity 0.8s ease' }}>
+      <div className={`w-full h-full transition-opacity duration-[800ms] ${visible ? 'opacity-0' : 'opacity-100'}`}>
         <UnityPlayer unityProvider={unityProvider} />
       </div>
 
