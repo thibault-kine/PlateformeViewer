@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -53,6 +54,20 @@ public class MobileInputManager : MonoBehaviour
 
     // ── Lifecycle ─────────────────────────────────────────────────────────────
 
+#if UNITY_WEBGL && !UNITY_EDITOR
+    [DllImport("__Internal")]
+    static extern bool IsMobileBrowser();
+#endif
+
+    static bool DetectMobile()
+    {
+#if UNITY_WEBGL && !UNITY_EDITOR
+        return IsMobileBrowser();
+#else
+        return SystemInfo.deviceType == DeviceType.Handheld;
+#endif
+    }
+
     void Awake()
     {
         EnhancedTouchSupport.Enable();
@@ -60,11 +75,9 @@ public class MobileInputManager : MonoBehaviour
 
     void Start()
     {
-        // DeviceType.Handheld is the reliable WebGL mobile check.
-        // Touchscreen.current alone is not sufficient — desktop Chrome can report
-        // a touchscreen even on non-touch hardware.
-        if (SystemInfo.deviceType != DeviceType.Handheld)
+        if (!DetectMobile())
         {
+            // Desktop browser — leave Instance null so BuildingManager uses mouse clicks.
             enabled = false;
             return;
         }
