@@ -1,5 +1,7 @@
 import { useState } from 'react';
 
+const CONTROLS_SEEN_KEY = 'plateforme_controls_seen';
+
 const ALTITUDE = [
   { key: 'A', label: 'Monter' },
   { key: 'E', label: 'Descendre' },
@@ -84,17 +86,43 @@ function Divider() {
 // ── Main ──────────────────────────────────────────────────────────────────────
 
 export default function ControlsModal() {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen]       = useState(false);
+  const [pulsing, setPulsing] = useState(() => !localStorage.getItem(CONTROLS_SEEN_KEY));
+
+  const handleOpen = () => {
+    setOpen(true);
+    if (pulsing) {
+      setPulsing(false);
+      localStorage.setItem(CONTROLS_SEEN_KEY, '1');
+    }
+  };
 
   return (
     <>
-      <button
-        onClick={() => setOpen(true)}
-        title="Contrôles"
-        className="fixed top-[9.5rem] touch:top-[6.5rem] left-7 touch:left-4 z-[200] w-14 h-14 touch:w-10 touch:h-10 rounded-full bg-[rgba(0,20,50,0.85)] border border-[rgba(0,180,255,0.5)] text-neon-blue font-mono text-2xl touch:text-sm font-bold shadow-neon-fab flex items-center justify-center cursor-pointer transition-all duration-200 hover:bg-[rgba(0,40,90,0.95)] hover:border-neon-blue hover:shadow-neon-fab-hover hover:text-white"
-      >
-        ?
-      </button>
+      {/* FAB wrapper — relative so the ping rings are positioned against it */}
+      <div className="fixed top-[9.5rem] touch:top-[6.5rem] left-7 touch:left-4 z-[200]">
+
+        {/* Ping rings — only shown until user opens the modal once */}
+        {pulsing && (
+          <>
+            <span className="absolute inset-0 rounded-full animate-ping bg-neon-blue opacity-40" />
+            <span className="absolute inset-0 rounded-full animate-ping bg-neon-blue opacity-20"
+              style={{ animationDelay: '0.6s' }} />
+          </>
+        )}
+
+        <button
+          onClick={handleOpen}
+          title="Contrôles"
+          className={`relative w-14 h-14 touch:w-10 touch:h-10 rounded-full bg-[rgba(0,20,50,0.85)] border font-mono text-2xl touch:text-sm font-bold shadow-neon-fab flex items-center justify-center cursor-pointer transition-all duration-300 hover:bg-[rgba(0,40,90,0.95)] hover:border-neon-blue hover:shadow-neon-fab-hover hover:text-white ${
+            pulsing
+              ? 'border-neon-blue text-white shadow-neon-fab-hover scale-110'
+              : 'border-[rgba(0,180,255,0.5)] text-neon-blue'
+          }`}
+        >
+          ?
+        </button>
+      </div>
 
       {open && (
         <div
