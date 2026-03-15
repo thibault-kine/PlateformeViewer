@@ -17,9 +17,9 @@ MonoBehaviour:
   apiBaseUrl2: 
   useMockData: 1
   refreshInterval: 60
-  cameraSpeed: 10
+  cameraSpeed: 5
   cameraBoostMultiplier: 3
-  mouseSensitivity: 1.5
+  mouseSensitivity: 0.5
   scrollSpeed: 20
   cameraStartPosition: {x: -60, y: 4, z: -8.5}
   cameraStartRotation: {x: 0, y: 90, z: 0}
