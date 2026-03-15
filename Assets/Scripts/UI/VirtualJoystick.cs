@@ -29,6 +29,7 @@ public class VirtualJoystick : MonoBehaviour
         _root   = (RectTransform)transform;
         BuildVisuals();
         _bg.gameObject.SetActive(false);
+        _knob.gameObject.SetActive(false);
     }
 
     void BuildVisuals()
