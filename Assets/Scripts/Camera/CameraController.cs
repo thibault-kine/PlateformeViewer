@@ -18,9 +18,11 @@ public class CameraController : MonoBehaviour
 
     float _pitch, _yaw;
 
-    // Set by MobileInputManager each frame ([-1..1] normalised axes)
-    public Vector2 JoystickMove { get; set; }
-    public Vector2 JoystickLook { get; set; }
+    // Set by MobileInputManager each frame
+    public Vector2 JoystickMove  { get; set; }
+    public Vector2 JoystickLook  { get; set; }
+    public bool    MobileAscend  { get; set; }
+    public bool    MobileDescend { get; set; }
 
     void Start()
     {
@@ -108,12 +110,14 @@ public class CameraController : MonoBehaviour
         {
             Vector3 moveDir = transform.forward * JoystickMove.y
                             + transform.right   * JoystickMove.x;
-            // Keep movement horizontal (no altitude drift from camera tilt)
-            moveDir.y = 0f;
             if (moveDir.sqrMagnitude > 0.001f)
                 transform.position += moveDir.normalized
                                     * (JoystickMove.magnitude * baseSpeed * Time.deltaTime);
         }
+
+        // ── Altitude buttons (mobile) ─────────────────────────────────────────
+        if (MobileAscend)  transform.position += Vector3.up   * baseSpeed * Time.deltaTime;
+        if (MobileDescend) transform.position += Vector3.down * baseSpeed * Time.deltaTime;
 
         // ── Keyboard movement (desktop) ───────────────────────────────────────
         var kb = Keyboard.current;
