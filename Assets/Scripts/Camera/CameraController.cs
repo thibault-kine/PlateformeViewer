@@ -18,6 +18,10 @@ public class CameraController : MonoBehaviour
 
     float _pitch, _yaw;
 
+    // Set by MobileInputManager each frame ([-1..1] normalised axes)
+    public Vector2 JoystickMove { get; set; }
+    public Vector2 JoystickLook { get; set; }
+
     void Start()
     {
         if (config != null)
@@ -52,10 +56,21 @@ public class CameraController : MonoBehaviour
 
     void HandleLook()
     {
+        // ── Joystick look (mobile) ────────────────────────────────────────────
+        if (JoystickLook.sqrMagnitude > 0.001f)
+        {
+            float sens      = config != null ? config.mouseSensitivity : 1.5f;
+            float lookSpeed = 120f; // degrees per second at full deflection
+            _yaw   += JoystickLook.x * lookSpeed * sens * Time.deltaTime;
+            _pitch -= JoystickLook.y * lookSpeed * sens * Time.deltaTime;
+            _pitch  = Mathf.Clamp(_pitch, -89f, 89f);
+            transform.rotation = Quaternion.Euler(_pitch, _yaw, 0f);
+        }
+
+        // ── Mouse look (desktop) ──────────────────────────────────────────────
         var mouse = Mouse.current;
         if (mouse == null) return;
 
-        // Lock/unlock cursor while right-click is held
         if (mouse.rightButton.wasPressedThisFrame)
             Cursor.lockState = CursorLockMode.Locked;
         if (mouse.rightButton.wasReleasedThisFrame)
@@ -82,12 +97,26 @@ public class CameraController : MonoBehaviour
 
     void HandleMovement()
     {
+        float baseSpeed = config != null ? config.cameraSpeed : 10f;
+
+        // ── Joystick movement (mobile) ────────────────────────────────────────
+        if (JoystickMove.sqrMagnitude > 0.001f)
+        {
+            Vector3 moveDir = transform.forward * JoystickMove.y
+                            + transform.right   * JoystickMove.x;
+            // Keep movement horizontal (no altitude drift from camera tilt)
+            moveDir.y = 0f;
+            if (moveDir.sqrMagnitude > 0.001f)
+                transform.position += moveDir.normalized
+                                    * (JoystickMove.magnitude * baseSpeed * Time.deltaTime);
+        }
+
+        // ── Keyboard movement (desktop) ───────────────────────────────────────
         var kb = Keyboard.current;
         if (kb == null) return;
 
-        float baseSpeed  = config != null ? config.cameraSpeed : 10f;
-        float boost      = config != null ? config.cameraBoostMultiplier : 3f;
-        float speed      = baseSpeed * (kb.shiftKey.isPressed ? boost : 1f);
+        float boost = config != null ? config.cameraBoostMultiplier : 3f;
+        float speed = baseSpeed * (kb.shiftKey.isPressed ? boost : 1f);
 
         Vector3 dir = Vector3.zero;
 
