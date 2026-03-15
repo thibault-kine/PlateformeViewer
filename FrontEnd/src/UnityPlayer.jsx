@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Unity } from 'react-unity-webgl';
 import ControlsModal from './ControlsModal';
 import WelcomeModal from './WelcomeModal';
@@ -8,6 +8,7 @@ import SettingsPanel from './SettingsPanel';
 export default function UnityPlayer({ unityProvider, sendMessage, isLoaded, requestFullscreen }) {
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [showEscHint, setShowEscHint] = useState(false);
+  const wrapperRef = useRef(null);
 
   useEffect(() => {
     const handleFsChange = () => {
@@ -27,13 +28,15 @@ export default function UnityPlayer({ unityProvider, sendMessage, isLoaded, requ
     if (isFullscreen) {
       document.exitFullscreen();
     } else {
-      requestFullscreen(true);
+      // Fullscreen the wrapper div (not just the Unity canvas) so all
+      // React overlays — FABs, ESC hint, modals — remain visible in fullscreen.
+      wrapperRef.current?.requestFullscreen();
     }
   };
 
   return (
-    <div style={{ position: 'relative', width: '100%', height: '100vh' }}>
-      <Unity unityProvider={unityProvider} style={{ width: '100%', height: '100vh' }} />
+    <div ref={wrapperRef} style={{ position: 'relative', width: '100%', height: '100vh' }}>
+      <Unity unityProvider={unityProvider} style={{ width: '100%', height: '100%' }} />
       <WelcomeModal />
       <StatusLegend />
       <SettingsPanel sendMessage={sendMessage} isLoaded={isLoaded} requestFullscreen={requestFullscreen} />
