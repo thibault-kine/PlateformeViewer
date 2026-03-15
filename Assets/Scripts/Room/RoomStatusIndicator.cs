@@ -21,8 +21,9 @@ public class RoomStatusIndicator : MonoBehaviour
     readonly List<Material> _runtimeMats  = new();
     readonly List<Color>   _originalColors = new();
 
-    // How much the status color blends over the original material color (0 = invisible, 1 = full replace)
-    [Range(0f, 1f)] [SerializeField] float statusBlend = 0.05f;
+    // Not serialized — always reads from code so stale scene values can't override it
+    const float StatusBlend     = 0.5f;  // 75 % status color, 25 % original
+    const float EmissionBoost   = 1f;   // HDR-range emission for URP / Linear colour space
 
     void Awake()
     {
@@ -67,14 +68,15 @@ public class RoomStatusIndicator : MonoBehaviour
 
             Color original = i < _originalColors.Count ? _originalColors[i] : Color.white;
 
-            // Subtle tint: blend original material color with status color
-            mat.color = Color.Lerp(original, statusColor, statusBlend);
+            // Blend original material colour with status colour
+            mat.color = Color.Lerp(original, statusColor, StatusBlend);
 
-            // Soft emission for visibility in darker areas
-            if (mat.IsKeywordEnabled("_EMISSION") || mat.HasProperty("_EmissionColor"))
+            // Emission — must set globalIlluminationFlags for URP / WebGL linear colour space
+            if (mat.HasProperty("_EmissionColor"))
             {
                 mat.EnableKeyword("_EMISSION");
-                mat.SetColor("_EmissionColor", statusColor * 0.08f);
+                mat.SetColor("_EmissionColor", statusColor * EmissionBoost);
+                mat.globalIlluminationFlags = MaterialGlobalIlluminationFlags.RealtimeEmissive;
             }
         }
     }
