@@ -29,7 +29,7 @@ export default function StatusLegend() {
   return (
     <div className="fixed bottom-7 left-7 z-[100]">
       {/* Card with grid background */}
-      <div className="relative bg-[rgba(3,14,36,0.92)] border border-[rgba(0,160,255,0.3)] rounded-lg px-8 py-6 overflow-hidden shadow-neon-modal">
+      <div className="relative bg-[rgba(3,14,36,0.92)] border border-[rgba(0,160,255,0.3)] rounded-lg px-4 py-3 sm:px-8 sm:py-6 overflow-hidden shadow-neon-modal">
 
         {/* Animated grid */}
         <div className="absolute inset-0 bg-grid-modal pointer-events-none" />
@@ -38,23 +38,23 @@ export default function StatusLegend() {
         <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-neon-blue to-transparent" />
 
         {/* Header */}
-        <p className="relative m-0 font-mono text-sm tracking-[0.35em] text-[rgba(0,180,255,0.7)] uppercase mb-5">
+        <p className="relative m-0 font-mono text-xs sm:text-sm tracking-[0.35em] text-[rgba(0,180,255,0.7)] uppercase mb-3 sm:mb-5">
           Statut des salles
         </p>
 
         {/* Status rows */}
-        <div className="relative flex flex-col gap-4">
+        <div className="relative flex flex-col gap-2 sm:gap-4">
           {STATUSES.map(({ color, glow, label, desc }) => (
-            <div key={label} className="flex items-center gap-4">
+            <div key={label} className="flex items-center gap-3 sm:gap-4">
               <span
-                className="w-5 h-5 rounded-full shrink-0"
+                className="w-3 h-3 sm:w-5 sm:h-5 rounded-full shrink-0"
                 style={{ background: color, boxShadow: `0 0 8px 3px ${glow}` }}
               />
               <div className="flex items-baseline gap-2">
-                <span className="font-mono text-base font-bold text-white tracking-wide">
+                <span className="font-mono text-sm sm:text-base font-bold text-white tracking-wide">
                   {label}
                 </span>
-                <span className="font-mono text-sm text-[rgba(180,220,255,0.75)] tracking-wide">
+                <span className="hidden sm:inline font-mono text-sm text-[rgba(180,220,255,0.75)] tracking-wide">
                   — {desc}
                 </span>
               </div>

@@ -8,10 +8,10 @@ const ALTITUDE = [
 function Key({ label, hint }) {
   return (
     <div className="flex flex-col items-center gap-3">
-      <kbd className="inline-flex items-center justify-center w-24 h-24 bg-[rgba(0,25,65,0.9)] border border-[rgba(0,180,255,0.45)] border-b-[4px] border-b-[rgba(0,180,255,0.65)] rounded-xl font-mono text-4xl font-bold text-white shadow-neon-key select-none">
+      <kbd className="inline-flex items-center justify-center w-14 h-14 sm:w-24 sm:h-24 bg-[rgba(0,25,65,0.9)] border border-[rgba(0,180,255,0.45)] border-b-[4px] border-b-[rgba(0,180,255,0.65)] rounded-xl font-mono text-2xl sm:text-4xl font-bold text-white shadow-neon-key select-none">
         {label}
       </kbd>
-      <span className="font-mono text-lg tracking-wide text-[rgba(180,220,255,0.9)] whitespace-nowrap">
+      <span className="font-mono text-sm sm:text-lg tracking-wide text-[rgba(180,220,255,0.9)] whitespace-nowrap">
         {hint}
       </span>
     </div>
@@ -60,7 +60,7 @@ export default function ControlsModal() {
           {/* Centred modal */}
           <div className="relative flex items-center justify-center w-full h-full">
             <div
-              className="relative w-[820px] bg-[rgba(3,14,36,0.96)] border border-[rgba(0,160,255,0.3)] rounded-xl px-12 py-10 overflow-hidden shadow-neon-modal animate-modal-in"
+              className="relative w-full max-w-[820px] mx-4 bg-[rgba(3,14,36,0.96)] border border-[rgba(0,160,255,0.3)] rounded-xl px-5 py-8 sm:px-12 sm:py-10 overflow-hidden shadow-neon-modal animate-modal-in"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Inner grid */}
@@ -71,7 +71,7 @@ export default function ControlsModal() {
 
               {/* Header */}
               <div className="relative flex items-center justify-between mb-6">
-                <span className="font-mono text-3xl font-bold tracking-[0.4em] text-white text-shadow-neon-sm">
+                <span className="font-mono text-xl sm:text-3xl font-bold tracking-[0.4em] text-white text-shadow-neon-sm">
                   CONTRÔLES
                 </span>
                 <button

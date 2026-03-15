@@ -43,7 +43,7 @@ export default function WelcomeModal() {
       {/* Centred modal */}
       <div className="relative flex items-center justify-center w-full h-full">
         <div
-          className="relative w-[900px] bg-[rgba(3,14,36,0.96)] border border-[rgba(0,160,255,0.3)] rounded-xl px-14 py-12 overflow-hidden shadow-neon-modal animate-modal-in"
+          className="relative w-full max-w-[900px] mx-4 bg-[rgba(3,14,36,0.96)] border border-[rgba(0,160,255,0.3)] rounded-xl px-5 py-8 sm:px-14 sm:py-12 overflow-hidden shadow-neon-modal animate-modal-in"
           onClick={(e) => e.stopPropagation()}
         >
           {/* Inner grid */}
@@ -54,13 +54,13 @@ export default function WelcomeModal() {
 
           {/* Header */}
           <div className="relative flex flex-col items-center gap-3 mb-1">
-            <p className="m-0 font-mono text-base tracking-[0.45em] text-[rgba(0,180,255,0.6)] uppercase">
+            <p className="m-0 font-mono text-xs sm:text-base tracking-[0.45em] text-[rgba(0,180,255,0.6)] uppercase">
               Bienvenue dans
             </p>
-            <h1 className="m-0 font-mono text-6xl font-bold tracking-[0.2em] text-white text-shadow-neon">
+            <h1 className="m-0 font-mono text-[clamp(1.8rem,8vw,3.75rem)] font-bold tracking-[0.2em] text-white text-shadow-neon text-center">
               LA PLATEFORME
             </h1>
-            <p className="m-0 font-mono text-base tracking-[0.35em] text-[rgba(0,180,255,0.55)] uppercase">
+            <p className="m-0 font-mono text-xs sm:text-base tracking-[0.35em] text-[rgba(0,180,255,0.55)] uppercase">
               Viewer Immersif · Marseille
             </p>
           </div>
@@ -68,7 +68,7 @@ export default function WelcomeModal() {
           <Divider />
 
           {/* Description */}
-          <p className="relative m-0 font-mono text-lg leading-relaxed tracking-wide text-[rgba(200,230,255,0.9)] text-center">
+          <p className="relative m-0 font-mono text-sm sm:text-lg leading-relaxed tracking-wide text-[rgba(200,230,255,0.9)] text-center">
             Ce projet est un{' '}
             <span className="text-neon-blue font-bold">visualiseur interactif en 3D</span>{' '}
             du bâtiment <span className="text-white font-bold">La Plateforme</span>, situé
@@ -83,14 +83,14 @@ export default function WelcomeModal() {
             {FEATURES.map(({ icon, title, desc }) => (
               <div
                 key={title}
-                className="flex items-start gap-5 bg-[rgba(0,30,70,0.45)] border border-[rgba(0,140,255,0.18)] rounded-lg px-6 py-4"
+                className="flex items-start gap-3 sm:gap-5 bg-[rgba(0,30,70,0.45)] border border-[rgba(0,140,255,0.18)] rounded-lg px-4 py-3 sm:px-6 sm:py-4"
               >
-                <span className="text-neon-blue text-3xl mt-1 shrink-0">{icon}</span>
+                <span className="text-neon-blue text-xl sm:text-3xl mt-1 shrink-0">{icon}</span>
                 <div>
-                  <p className="m-0 font-mono text-xl font-bold tracking-wide text-white mb-1">
+                  <p className="m-0 font-mono text-base sm:text-xl font-bold tracking-wide text-white mb-1">
                     {title}
                   </p>
-                  <p className="m-0 font-mono text-base leading-relaxed text-[rgba(180,220,255,0.75)]">
+                  <p className="m-0 font-mono text-sm sm:text-base leading-relaxed text-[rgba(180,220,255,0.75)]">
                     {desc}
                   </p>
                 </div>
@@ -104,7 +104,7 @@ export default function WelcomeModal() {
           <div className="relative flex flex-col items-center gap-4">
             <button
               onClick={() => setOpen(false)}
-              className="px-16 py-4 bg-transparent border border-[rgba(0,180,255,0.6)] rounded-sm font-mono text-xl tracking-[0.35em] text-neon-blue cursor-pointer shadow-neon-btn hover:bg-[rgba(0,120,255,0.12)] hover:border-[rgba(0,220,255,0.9)] hover:text-white hover:shadow-neon-btn-hover active:scale-95 transition-all duration-200"
+              className="px-8 py-3 sm:px-16 sm:py-4 bg-transparent border border-[rgba(0,180,255,0.6)] rounded-sm font-mono text-base sm:text-xl tracking-[0.35em] text-neon-blue cursor-pointer shadow-neon-btn hover:bg-[rgba(0,120,255,0.12)] hover:border-[rgba(0,220,255,0.9)] hover:text-white hover:shadow-neon-btn-hover active:scale-95 transition-all duration-200"
             >
               EXPLORER
             </button>
