@@ -8,10 +8,10 @@ const ALTITUDE = [
 function Key({ label, hint }) {
   return (
     <div className="flex flex-col items-center gap-3">
-      <kbd className="inline-flex items-center justify-center w-14 h-14 sm:w-24 sm:h-24 bg-[rgba(0,25,65,0.9)] border border-[rgba(0,180,255,0.45)] border-b-[4px] border-b-[rgba(0,180,255,0.65)] rounded-xl font-mono text-2xl sm:text-4xl font-bold text-white shadow-neon-key select-none">
+      <kbd className="inline-flex items-center justify-center w-24 h-24 touch:w-14 touch:h-14 bg-[rgba(0,25,65,0.9)] border border-[rgba(0,180,255,0.45)] border-b-[4px] border-b-[rgba(0,180,255,0.65)] rounded-xl font-mono text-4xl touch:text-2xl font-bold text-white shadow-neon-key select-none">
         {label}
       </kbd>
-      <span className="font-mono text-sm sm:text-lg tracking-wide text-[rgba(180,220,255,0.9)] whitespace-nowrap">
+      <span className="font-mono text-lg touch:text-sm tracking-wide text-[rgba(180,220,255,0.9)] whitespace-nowrap">
         {hint}
       </span>
     </div>
@@ -20,7 +20,7 @@ function Key({ label, hint }) {
 
 function SectionLabel({ children }) {
   return (
-    <p className="m-0 mb-4 font-mono text-base tracking-[0.4em] text-[rgba(0,180,255,0.6)] uppercase">
+    <p className="m-0 mb-4 font-mono text-base touch:text-sm tracking-[0.4em] text-[rgba(0,180,255,0.6)] uppercase">
       {children}
     </p>
   );
@@ -28,7 +28,7 @@ function SectionLabel({ children }) {
 
 function Divider() {
   return (
-    <div className="h-px bg-gradient-to-r from-transparent via-[rgba(0,160,255,0.35)] to-transparent my-6" />
+    <div className="h-px bg-gradient-to-r from-transparent via-[rgba(0,160,255,0.35)] to-transparent my-6 touch:my-4" />
   );
 }
 
@@ -37,7 +37,6 @@ export default function ControlsModal() {
 
   return (
     <>
-      {/* Floating help button */}
       <button
         onClick={() => setOpen(true)}
         title="Contrôles"
@@ -47,96 +46,86 @@ export default function ControlsModal() {
       </button>
 
       {open && (
-        /* Full-screen overlay with animated grid */
         <div
           className="fixed inset-0 z-[300] animate-overlay-in"
           onClick={() => setOpen(false)}
         >
-          {/* Dark tint */}
           <div className="absolute inset-0 bg-[rgba(2,11,26,0.65)]" />
-          {/* Animated neon grid */}
           <div className="absolute inset-0 bg-grid-neon animate-grid-drift opacity-50 pointer-events-none" />
 
           {/* Scroll wrapper — child div for Firefox compat */}
           <div className="absolute inset-0 overflow-y-auto">
-          {/* Centred modal */}
-          <div className="relative flex items-start sm:items-center justify-center w-full min-h-full py-4">
-            <div
-              className="relative w-full max-w-[820px] mx-4 bg-[rgba(3,14,36,0.96)] border border-[rgba(0,160,255,0.3)] rounded-xl px-5 py-8 sm:px-12 sm:py-10 overflow-hidden shadow-neon-modal animate-modal-in"
-              onClick={(e) => e.stopPropagation()}
-            >
-              {/* Inner grid */}
-              <div className="absolute inset-0 bg-grid-modal pointer-events-none" />
+            <div className="relative flex items-center justify-center w-full min-h-full py-4">
+              <div
+                className="relative w-full max-w-[820px] mx-4 my-auto bg-[rgba(3,14,36,0.96)] border border-[rgba(0,160,255,0.3)] rounded-xl px-12 py-10 touch:px-5 touch:py-8 overflow-hidden shadow-neon-modal animate-modal-in"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <div className="absolute inset-0 bg-grid-modal pointer-events-none" />
+                <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-neon-blue to-transparent" />
 
-              {/* Top accent */}
-              <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-neon-blue to-transparent" />
-
-              {/* Header */}
-              <div className="relative flex items-center justify-between mb-6">
-                <span className="font-mono text-xl sm:text-3xl font-bold tracking-[0.4em] text-white text-shadow-neon-sm">
-                  CONTRÔLES
-                </span>
-                <button
-                  onClick={() => setOpen(false)}
-                  className="bg-transparent border-none text-[rgba(0,180,255,0.45)] text-2xl cursor-pointer px-2 transition-colors duration-150 hover:text-white font-mono"
-                >
-                  ✕
-                </button>
-              </div>
-
-              <Divider />
-
-              {/* Déplacement */}
-              <SectionLabel>Déplacement</SectionLabel>
-              <div className="relative flex flex-col items-center gap-4 mb-2">
-                <div className="flex justify-center">
-                  <Key label="Z" hint="Avancer" />
+                {/* Header */}
+                <div className="relative flex items-center justify-between mb-6">
+                  <span className="font-mono text-3xl touch:text-xl font-bold tracking-[0.4em] text-white text-shadow-neon-sm">
+                    CONTRÔLES
+                  </span>
+                  <button
+                    onClick={() => setOpen(false)}
+                    className="bg-transparent border-none text-[rgba(0,180,255,0.45)] text-2xl cursor-pointer px-2 transition-colors duration-150 hover:text-white font-mono"
+                  >
+                    ✕
+                  </button>
                 </div>
-                <div className="flex gap-4">
-                  <Key label="Q" hint="Gauche" />
-                  <Key label="S" hint="Reculer" />
-                  <Key label="D" hint="Droite" />
+
+                <Divider />
+
+                <SectionLabel>Déplacement</SectionLabel>
+                <div className="relative flex flex-col items-center gap-4 mb-2">
+                  <div className="flex justify-center">
+                    <Key label="Z" hint="Avancer" />
+                  </div>
+                  <div className="flex gap-4 touch:gap-2">
+                    <Key label="Q" hint="Gauche" />
+                    <Key label="S" hint="Reculer" />
+                    <Key label="D" hint="Droite" />
+                  </div>
                 </div>
-              </div>
 
-              <Divider />
+                <Divider />
 
-              {/* Altitude */}
-              <SectionLabel>Altitude</SectionLabel>
-              <div className="relative flex justify-center gap-10">
-                {ALTITUDE.map(({ key, label }) => (
-                  <Key key={key} label={key} hint={label} />
-                ))}
-              </div>
+                <SectionLabel>Altitude</SectionLabel>
+                <div className="relative flex justify-center gap-10 touch:gap-6">
+                  {ALTITUDE.map(({ key, label }) => (
+                    <Key key={key} label={key} hint={label} />
+                  ))}
+                </div>
 
-              <Divider />
+                <Divider />
 
-              {/* Caméra */}
-              <SectionLabel>Caméra</SectionLabel>
-              <div className="relative flex items-center justify-center gap-8">
-                <div className="flex flex-col items-center gap-3">
-                  <svg className="w-14 h-20 drop-shadow-[0_0_8px_rgba(0,180,255,0.6)]" viewBox="0 0 40 60" fill="none">
-                    <rect x="1" y="1" width="38" height="58" rx="19" stroke="rgba(0,180,255,0.5)" strokeWidth="2"/>
-                    <line x1="20" y1="1" x2="20" y2="28" stroke="rgba(0,180,255,0.5)" strokeWidth="2"/>
-                    <path d="M20 2 Q38 2 38 20 L38 28 L20 28 Z" fill="rgba(0,180,255,0.2)"/>
-                    <circle cx="29" cy="16" r="3" fill="#00cfff" opacity="0.8"/>
-                  </svg>
-                  <span className="font-mono text-lg tracking-wide text-[rgba(180,220,255,0.9)]">
-                    Clic Droit
+                <SectionLabel>Caméra</SectionLabel>
+                <div className="relative flex items-center justify-center gap-8 touch:gap-5">
+                  <div className="flex flex-col items-center gap-3">
+                    <svg className="w-14 h-20 touch:w-10 touch:h-14 drop-shadow-[0_0_8px_rgba(0,180,255,0.6)]" viewBox="0 0 40 60" fill="none">
+                      <rect x="1" y="1" width="38" height="58" rx="19" stroke="rgba(0,180,255,0.5)" strokeWidth="2"/>
+                      <line x1="20" y1="1" x2="20" y2="28" stroke="rgba(0,180,255,0.5)" strokeWidth="2"/>
+                      <path d="M20 2 Q38 2 38 20 L38 28 L20 28 Z" fill="rgba(0,180,255,0.2)"/>
+                      <circle cx="29" cy="16" r="3" fill="#00cfff" opacity="0.8"/>
+                    </svg>
+                    <span className="font-mono text-lg touch:text-sm tracking-wide text-[rgba(180,220,255,0.9)]">
+                      Clic Droit
+                    </span>
+                  </div>
+                  <span className="font-mono text-2xl touch:text-base tracking-wide text-white">
+                    Orienter la caméra
                   </span>
                 </div>
-                <span className="font-mono text-2xl tracking-wide text-white">
-                  Orienter la caméra
-                </span>
+
+                <Divider />
+
+                <p className="relative m-0 text-center font-mono text-base touch:text-sm tracking-[0.2em] text-white/50">
+                  Cliquez en dehors pour fermer
+                </p>
               </div>
-
-              <Divider />
-
-              <p className="relative m-0 text-center font-mono text-base tracking-[0.2em] text-white/50">
-                Cliquez en dehors pour fermer
-              </p>
             </div>
-          </div>
           </div>
         </div>
       )}

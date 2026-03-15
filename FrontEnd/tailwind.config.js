@@ -2,6 +2,15 @@
 module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
+    screens: {
+      sm:    '640px',
+      md:    '768px',
+      lg:    '1024px',
+      xl:    '1280px',
+      '2xl': '1536px',
+      // Targets touch devices regardless of orientation or screen size
+      touch: { raw: '(hover: none) and (pointer: coarse)' },
+    },
     extend: {
       fontFamily: {
         mono: ['"Courier New"', 'Courier', 'monospace'],

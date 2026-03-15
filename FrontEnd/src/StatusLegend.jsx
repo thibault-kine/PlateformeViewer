@@ -14,22 +14,19 @@ export default function StatusLegend() {
     <div className="fixed bottom-7 left-7 z-[100]">
       <div className="relative bg-[rgba(3,14,36,0.92)] border border-[rgba(0,160,255,0.3)] rounded-lg overflow-hidden shadow-neon-modal">
 
-        {/* Animated grid */}
         <div className="absolute inset-0 bg-grid-modal pointer-events-none" />
-
-        {/* Top accent line */}
         <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-neon-blue to-transparent" />
 
-        {/* Header — always visible, tappable on mobile */}
+        {/* Header — tappable on touch devices to toggle */}
         <button
           onClick={() => setExpanded(o => !o)}
-          className="relative w-full flex items-center justify-between gap-4 px-4 py-3 sm:px-8 sm:py-4 sm:cursor-default"
+          className="relative w-full flex items-center justify-between gap-4 px-8 py-4 touch:px-4 touch:py-3 touch:cursor-pointer"
         >
-          <p className="m-0 font-mono text-xs sm:text-sm tracking-[0.35em] text-[rgba(0,180,255,0.7)] uppercase">
+          <p className="m-0 font-mono text-sm touch:text-xs tracking-[0.35em] text-[rgba(0,180,255,0.7)] uppercase">
             Statut des salles
           </p>
-          {/* Dot row shown when collapsed on mobile */}
-          <div className="flex gap-1.5 sm:hidden">
+          {/* Dot row shown collapsed on touch */}
+          <div className="hidden touch:flex gap-1.5">
             {STATUSES.map(({ color, glow }) => (
               <span
                 key={color}
@@ -38,26 +35,25 @@ export default function StatusLegend() {
               />
             ))}
           </div>
-          {/* Chevron on mobile only */}
-          <span className={`sm:hidden font-mono text-[rgba(0,180,255,0.6)] text-xs transition-transform duration-200 ${expanded ? 'rotate-180' : ''}`}>
+          <span className={`hidden touch:inline font-mono text-[rgba(0,180,255,0.6)] text-xs transition-transform duration-200 ${expanded ? 'rotate-180' : ''}`}>
             ▾
           </span>
         </button>
 
-        {/* Status rows — always visible on sm+, toggle on mobile */}
-        <div className={`px-4 pb-3 sm:px-8 sm:pb-6 sm:block ${expanded ? 'block' : 'hidden'}`}>
-          <div className="relative flex flex-col gap-2 sm:gap-4">
+        {/* Status rows — always visible on non-touch, toggle on touch */}
+        <div className={`px-8 pb-6 touch:px-4 touch:pb-3 touch:hidden ${expanded ? '!block' : ''}`}>
+          <div className="relative flex flex-col gap-4 touch:gap-2">
             {STATUSES.map(({ color, glow, label, desc }) => (
-              <div key={label} className="flex items-center gap-3 sm:gap-4">
+              <div key={label} className="flex items-center gap-4 touch:gap-3">
                 <span
-                  className="w-3 h-3 sm:w-5 sm:h-5 rounded-full shrink-0"
+                  className="w-5 h-5 touch:w-3 touch:h-3 rounded-full shrink-0"
                   style={{ background: color, boxShadow: `0 0 8px 3px ${glow}` }}
                 />
                 <div className="flex items-baseline gap-2">
-                  <span className="font-mono text-sm sm:text-base font-bold text-white tracking-wide">
+                  <span className="font-mono text-base touch:text-sm font-bold text-white tracking-wide">
                     {label}
                   </span>
-                  <span className="hidden sm:inline font-mono text-sm text-[rgba(180,220,255,0.75)] tracking-wide">
+                  <span className="font-mono text-sm text-[rgba(180,220,255,0.75)] tracking-wide touch:hidden">
                     — {desc}
                   </span>
                 </div>
