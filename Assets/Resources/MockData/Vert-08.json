@@ -1,27 +1,39 @@
 {
-  "timestamp": "2026-03-11T09:00:00Z",
-  "room": {
-    "code": "Vert-08",
-    "name": "Vert-08",
-    "capacity": 24,
-    "type": "Salle de travail",
-    "status": "occupied",
-    "current_event": {
+  "code": "Vert-08",
+  "name": "Vert-08",
+  "capacity": 24,
+  "type": "Salle de travail",
+  "status": "occupied",
+  "current_event": {
+    "title": "Cours JavaScript",
+    "start": "2026-03-11T08:00:00Z",
+    "end": "2026-03-11T10:00:00Z",
+    "organizer": "Mme Chen"
+  },
+  "next_event": {
+    "title": "Cours UX/UI",
+    "start": "2026-03-11T10:30:00Z",
+    "end": "2026-03-11T12:30:00Z",
+    "organizer": "Mme Leroy"
+  },
+  "schedule_today": [
+    {
       "title": "Cours JavaScript",
       "start": "2026-03-11T08:00:00Z",
       "end": "2026-03-11T10:00:00Z",
       "organizer": "Mme Chen"
     },
-    "next_event": {
+    {
       "title": "Cours UX/UI",
       "start": "2026-03-11T10:30:00Z",
       "end": "2026-03-11T12:30:00Z",
       "organizer": "Mme Leroy"
     },
-    "schedule_today": [
-      { "title": "Cours JavaScript", "start": "2026-03-11T08:00:00Z", "end": "2026-03-11T10:00:00Z", "organizer": "Mme Chen" },
-      { "title": "Cours UX/UI", "start": "2026-03-11T10:30:00Z", "end": "2026-03-11T12:30:00Z", "organizer": "Mme Leroy" },
-      { "title": "Atelier Blender", "start": "2026-03-11T14:00:00Z", "end": "2026-03-11T16:00:00Z", "organizer": "M. Bernard" }
-    ]
-  }
+    {
+      "title": "Atelier Blender",
+      "start": "2026-03-11T14:00:00Z",
+      "end": "2026-03-11T16:00:00Z",
+      "organizer": "M. Bernard"
+    }
+  ]
 }

@@ -1,13 +1,20 @@
 {
-  "timestamp": "2026-03-11T09:00:00Z",
-  "room": {
-    "code": "Jaune-OpenSpace",
-    "name": "Jaune-OpenSpace",
-    "capacity": 100,
-    "type": "OpenSpace",
-    "status": "free",
-    "current_event": { "title": "", "start": "", "end": "", "organizer": "" },
-    "next_event": { "title": "", "start": "", "end": "", "organizer": "" },
-    "schedule_today": []
-  }
+  "code": "Jaune-OpenSpace",
+  "name": "Jaune-OpenSpace",
+  "capacity": 100,
+  "type": "OpenSpace",
+  "status": "free",
+  "current_event": {
+    "title": "",
+    "start": "",
+    "end": "",
+    "organizer": ""
+  },
+  "next_event": {
+    "title": "",
+    "start": "",
+    "end": "",
+    "organizer": ""
+  },
+  "schedule_today": []
 }

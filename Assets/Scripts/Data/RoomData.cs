@@ -2,23 +2,16 @@ using System;
 using System.Collections.Generic;
 
 /// <summary>
-/// Top-level response from GET /rooms/{code}
+/// Matches the flat response from GET /api/v1/rooms/{code}
 /// </summary>
 [Serializable]
 public class RoomApiResponse
-{
-    public string timestamp;
-    public RoomDetail room;
-}
-
-[Serializable]
-public class RoomDetail
 {
     public string code;
     public string name;
     public int capacity;
     public string type;
-    public string status;           // "occupied" | "free"
+    public string status;           // "available" | "occupied" | "upcoming" | "maintenance"
     public EventData current_event;
     public EventData next_event;
     public List<EventData> schedule_today;

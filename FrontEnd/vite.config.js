@@ -6,6 +6,7 @@ export default defineConfig({
   server: {
     open: false,
     port: 3000,
+    host: true,
   },
   build: {
     sourcemap: false,

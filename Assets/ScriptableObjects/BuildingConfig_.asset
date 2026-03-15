@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BuildingConfig_
   m_EditorClassIdentifier: Assembly-CSharp::BuildingConfigSO
   buildingName: La Plateforme
-  apiBaseUrl: 
+  apiBaseUrl: http://localhost:8080/api/v1
   apiBaseUrl2: 
   useMockData: 1
   refreshInterval: 60

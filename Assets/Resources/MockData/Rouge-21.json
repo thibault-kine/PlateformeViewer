@@ -1,27 +1,39 @@
 {
-  "timestamp": "2026-03-11T09:00:00Z",
-  "room": {
-    "code": "Rouge-21",
-    "name": "Rouge-21",
-    "capacity": 24,
-    "type": "Salle de travail",
-    "status": "occupied",
-    "current_event": {
+  "code": "Rouge-21",
+  "name": "Rouge-21",
+  "capacity": 24,
+  "type": "Salle de travail",
+  "status": "occupied",
+  "current_event": {
+    "title": "Cours Cybersécurité Avancé",
+    "start": "2026-03-11T08:00:00Z",
+    "end": "2026-03-11T10:00:00Z",
+    "organizer": "M. Ahmed"
+  },
+  "next_event": {
+    "title": "Lab Ethical Hacking",
+    "start": "2026-03-11T10:30:00Z",
+    "end": "2026-03-11T12:30:00Z",
+    "organizer": "M. Ahmed"
+  },
+  "schedule_today": [
+    {
       "title": "Cours Cybersécurité Avancé",
       "start": "2026-03-11T08:00:00Z",
       "end": "2026-03-11T10:00:00Z",
       "organizer": "M. Ahmed"
     },
-    "next_event": {
+    {
       "title": "Lab Ethical Hacking",
       "start": "2026-03-11T10:30:00Z",
       "end": "2026-03-11T12:30:00Z",
       "organizer": "M. Ahmed"
     },
-    "schedule_today": [
-      { "title": "Cours Cybersécurité Avancé", "start": "2026-03-11T08:00:00Z", "end": "2026-03-11T10:00:00Z", "organizer": "M. Ahmed" },
-      { "title": "Lab Ethical Hacking", "start": "2026-03-11T10:30:00Z", "end": "2026-03-11T12:30:00Z", "organizer": "M. Ahmed" },
-      { "title": "Cours Intelligence Artificielle", "start": "2026-03-11T14:00:00Z", "end": "2026-03-11T17:00:00Z", "organizer": "Mme Chen" }
-    ]
-  }
+    {
+      "title": "Cours Intelligence Artificielle",
+      "start": "2026-03-11T14:00:00Z",
+      "end": "2026-03-11T17:00:00Z",
+      "organizer": "Mme Chen"
+    }
+  ]
 }

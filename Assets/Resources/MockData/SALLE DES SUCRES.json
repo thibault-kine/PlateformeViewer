@@ -1,20 +1,27 @@
 {
-  "timestamp": "2026-03-11T09:00:00Z",
-  "room": {
-    "code": "SALLE DES SUCRES",
-    "name": "SALLE DES SUCRES",
-    "capacity": 250,
-    "type": "Grande salle",
-    "status": "free",
-    "current_event": { "title": "", "start": "", "end": "", "organizer": "" },
-    "next_event": {
+  "code": "SALLE DES SUCRES",
+  "name": "SALLE DES SUCRES",
+  "capacity": 250,
+  "type": "Grande salle",
+  "status": "free",
+  "current_event": {
+    "title": "",
+    "start": "",
+    "end": "",
+    "organizer": ""
+  },
+  "next_event": {
+    "title": "Conférence annuelle",
+    "start": "2026-03-11T14:00:00Z",
+    "end": "2026-03-11T18:00:00Z",
+    "organizer": "M. Dupont"
+  },
+  "schedule_today": [
+    {
       "title": "Conférence annuelle",
       "start": "2026-03-11T14:00:00Z",
       "end": "2026-03-11T18:00:00Z",
       "organizer": "M. Dupont"
-    },
-    "schedule_today": [
-      { "title": "Conférence annuelle", "start": "2026-03-11T14:00:00Z", "end": "2026-03-11T18:00:00Z", "organizer": "M. Dupont" }
-    ]
-  }
+    }
+  ]
 }

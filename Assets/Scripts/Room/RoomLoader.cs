@@ -42,7 +42,7 @@ public class RoomLoader : MonoBehaviour
         {
             foreach (var res in responses)
             {
-                if (child.name != res.room.name)
+                if (child.name != res.name)
                     continue;
 
                 dict.Add(res, child);
@@ -107,7 +107,7 @@ public class RoomLoader : MonoBehaviour
             EditorUtility.SetDirty(_roomStatusIndicator);
 
             // Create RoomDataSO if it doesn't exist yet, then save & refresh so Resources.Load can find it
-            string soPath = $"Assets/Resources/RoomData/Room_{res.room.name}.asset";
+            string soPath = $"Assets/Resources/RoomData/Room_{res.name}.asset";
             if (!File.Exists(soPath))
             {
                 var _so = ScriptableObject.CreateInstance<RoomDataSO>();
@@ -133,7 +133,7 @@ public class RoomLoader : MonoBehaviour
                 EditorUtility.SetDirty(sign);
             }
 
-            Debug.Log($"Setup for {res.room.name} done!");
+            Debug.Log($"Setup for {res.name} done!");
         }
     }
 }

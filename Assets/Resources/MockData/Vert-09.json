@@ -1,21 +1,33 @@
 {
-  "timestamp": "2026-03-11T09:00:00Z",
-  "room": {
-    "code": "Vert-09",
-    "name": "Vert-09",
-    "capacity": 8,
-    "type": "Salle de réunion",
-    "status": "occupied",
-    "current_event": {
+  "code": "Vert-09",
+  "name": "Vert-09",
+  "capacity": 8,
+  "type": "Salle de réunion",
+  "status": "occupied",
+  "current_event": {
+    "title": "Réunion d'équipe",
+    "start": "2026-03-11T08:30:00Z",
+    "end": "2026-03-11T10:00:00Z",
+    "organizer": "M. Dupont"
+  },
+  "next_event": {
+    "title": "",
+    "start": "",
+    "end": "",
+    "organizer": ""
+  },
+  "schedule_today": [
+    {
       "title": "Réunion d'équipe",
       "start": "2026-03-11T08:30:00Z",
       "end": "2026-03-11T10:00:00Z",
       "organizer": "M. Dupont"
     },
-    "next_event": { "title": "", "start": "", "end": "", "organizer": "" },
-    "schedule_today": [
-      { "title": "Réunion d'équipe", "start": "2026-03-11T08:30:00Z", "end": "2026-03-11T10:00:00Z", "organizer": "M. Dupont" },
-      { "title": "Soutenance de projet", "start": "2026-03-11T14:00:00Z", "end": "2026-03-11T16:00:00Z", "organizer": "Mme Martin" }
-    ]
-  }
+    {
+      "title": "Soutenance de projet",
+      "start": "2026-03-11T14:00:00Z",
+      "end": "2026-03-11T16:00:00Z",
+      "organizer": "Mme Martin"
+    }
+  ]
 }

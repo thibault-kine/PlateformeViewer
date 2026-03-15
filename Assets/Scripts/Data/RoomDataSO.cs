@@ -25,26 +25,35 @@ public class RoomDataSO : ScriptableObject
     public event Action OnDataUpdated;
 
     /// <summary>Called by ApiClient after a successful fetch.</summary>
-    public void UpdateFromResponse(RoomApiResponse response)
+    public void UpdateFromResponse(RoomApiResponse r)
     {
-        if (response?.room == null)
+        if (r == null)
         {
             SetError();
             return;
         }
 
-        var r = response.room;
         roomCode     = r.code;
         roomName     = r.name;
         capacity     = r.capacity;
         roomType     = r.type;
-        status       = string.IsNullOrEmpty(r.status) ? "unknown" : r.status;
-        lastUpdated  = response.timestamp;
+        lastUpdated  = DateTime.UtcNow.ToString("o");
         currentEvent = r.current_event;
         nextEvent    = r.next_event;
         scheduleToday = r.schedule_today ?? new List<EventData>();
 
-        // Derive "upcoming" if next event starts within 30 minutes
+        // Normalize API status → internal status
+        status = r.status switch
+        {
+            "available"   => "free",
+            "free"        => "free",
+            "occupied"    => "occupied",
+            "upcoming"    => "upcoming",
+            "maintenance" => "unknown",
+            _             => "unknown",
+        };
+
+        // Derive "upcoming" locally if next event starts within 30 minutes
         if (status == "free" && nextEvent != null && nextEvent.IsValid())
         {
             if (DateTime.TryParse(nextEvent.start, out DateTime nextStart))

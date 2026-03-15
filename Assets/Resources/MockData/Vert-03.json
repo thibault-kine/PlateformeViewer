@@ -1,21 +1,33 @@
 {
-  "timestamp": "2026-03-11T09:00:00Z",
-  "room": {
-    "code": "Vert-03",
-    "name": "Vert-03",
-    "capacity": 24,
-    "type": "Salle de travail",
-    "status": "free",
-    "current_event": { "title": "", "start": "", "end": "", "organizer": "" },
-    "next_event": {
+  "code": "Vert-03",
+  "name": "Vert-03",
+  "capacity": 24,
+  "type": "Salle de travail",
+  "status": "free",
+  "current_event": {
+    "title": "",
+    "start": "",
+    "end": "",
+    "organizer": ""
+  },
+  "next_event": {
+    "title": "Cours Développement Web",
+    "start": "2026-03-11T10:30:00Z",
+    "end": "2026-03-11T12:30:00Z",
+    "organizer": "M. Garcia"
+  },
+  "schedule_today": [
+    {
       "title": "Cours Développement Web",
       "start": "2026-03-11T10:30:00Z",
       "end": "2026-03-11T12:30:00Z",
       "organizer": "M. Garcia"
     },
-    "schedule_today": [
-      { "title": "Cours Développement Web", "start": "2026-03-11T10:30:00Z", "end": "2026-03-11T12:30:00Z", "organizer": "M. Garcia" },
-      { "title": "Atelier Unity", "start": "2026-03-11T14:00:00Z", "end": "2026-03-11T17:00:00Z", "organizer": "Mme Chen" }
-    ]
-  }
+    {
+      "title": "Atelier Unity",
+      "start": "2026-03-11T14:00:00Z",
+      "end": "2026-03-11T17:00:00Z",
+      "organizer": "Mme Chen"
+    }
+  ]
 }
