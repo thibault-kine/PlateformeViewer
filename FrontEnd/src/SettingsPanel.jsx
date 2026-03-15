@@ -12,7 +12,7 @@ const DEFAULTS = {
 
 function SectionLabel({ children }) {
   return (
-    <p className="m-0 mb-4 font-mono text-sm tracking-[0.35em] text-[rgba(0,180,255,0.6)] uppercase">
+    <p className="m-0 mb-4 touch:mb-2 font-mono text-sm touch:text-xs tracking-[0.35em] text-[rgba(0,180,255,0.6)] uppercase">
       {children}
     </p>
   );
@@ -20,17 +20,17 @@ function SectionLabel({ children }) {
 
 function Divider() {
   return (
-    <div className="h-px bg-gradient-to-r from-transparent via-[rgba(0,160,255,0.3)] to-transparent my-6" />
+    <div className="h-px bg-gradient-to-r from-transparent via-[rgba(0,160,255,0.3)] to-transparent my-6 touch:my-3" />
   );
 }
 
 function SliderRow({ label, value, min, max, step, onChange }) {
   const pct = ((value - min) / (max - min)) * 100;
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex flex-col gap-2 touch:gap-1">
       <div className="flex justify-between items-baseline">
-        <span className="font-mono text-base text-[rgba(180,220,255,0.85)] tracking-wide">{label}</span>
-        <span className="font-mono text-sm text-neon-blue tabular-nums">{value}</span>
+        <span className="font-mono text-base touch:text-sm text-[rgba(180,220,255,0.85)] tracking-wide">{label}</span>
+        <span className="font-mono text-sm touch:text-xs text-neon-blue tabular-nums">{value}</span>
       </div>
       <input
         type="range"
@@ -69,7 +69,7 @@ function ActionBtn({ onClick, children }) {
   return (
     <button
       onClick={onClick}
-      className="flex-1 py-3 bg-transparent border border-[rgba(0,180,255,0.4)] rounded-sm font-mono text-sm tracking-[0.25em] text-neon-blue cursor-pointer transition-all duration-200 hover:bg-[rgba(0,120,255,0.12)] hover:border-[rgba(0,220,255,0.8)] hover:text-white shadow-neon-btn"
+      className="flex-1 py-3 touch:py-2 bg-transparent border border-[rgba(0,180,255,0.4)] rounded-sm font-mono text-sm touch:text-xs tracking-[0.25em] text-neon-blue cursor-pointer transition-all duration-200 hover:bg-[rgba(0,120,255,0.12)] hover:border-[rgba(0,220,255,0.8)] hover:text-white shadow-neon-btn"
     >
       {children}
     </button>
@@ -127,7 +127,7 @@ export default function SettingsPanel({ sendMessage, isLoaded }) {
         onMouseDown={(e) => e.stopPropagation()}
         onClick={() => setOpen(o => !o)}
         title="Paramètres"
-        className="fixed top-[5.5rem] left-7 z-[200] w-14 h-14 rounded-full bg-[rgba(0,20,50,0.85)] border border-[rgba(0,180,255,0.5)] text-neon-blue font-mono text-xl shadow-neon-fab flex items-center justify-center cursor-pointer transition-all duration-200 hover:bg-[rgba(0,40,90,0.95)] hover:border-neon-blue hover:shadow-neon-fab-hover hover:text-white"
+        className="fixed top-[5.5rem] touch:top-[3.5rem] left-7 touch:left-4 z-[200] w-14 h-14 touch:w-10 touch:h-10 rounded-full bg-[rgba(0,20,50,0.85)] border border-[rgba(0,180,255,0.5)] text-neon-blue font-mono text-xl touch:text-sm shadow-neon-fab flex items-center justify-center cursor-pointer transition-all duration-200 hover:bg-[rgba(0,40,90,0.95)] hover:border-neon-blue hover:shadow-neon-fab-hover hover:text-white"
       >
         ⚙
       </button>
@@ -157,11 +157,11 @@ export default function SettingsPanel({ sendMessage, isLoaded }) {
           <div className="absolute top-0 left-0 bottom-0 w-[2px] bg-gradient-to-b from-transparent via-neon-blue to-transparent" />
 
           {/* Scrollable content */}
-          <div className={`relative flex flex-col flex-1 overflow-y-auto px-9 py-8 ${!isLoaded ? 'pointer-events-none' : ''}`}>
+          <div className={`relative flex flex-col flex-1 overflow-y-auto px-9 py-8 touch:px-5 touch:py-5 ${!isLoaded ? 'pointer-events-none' : ''}`}>
 
             {/* Header */}
-            <div className="flex items-center justify-between mb-7">
-              <span className="font-mono text-lg font-bold tracking-[0.35em] text-white text-shadow-neon-sm">
+            <div className="flex items-center justify-between mb-7 touch:mb-4">
+              <span className="font-mono text-lg touch:text-sm font-bold tracking-[0.35em] text-white text-shadow-neon-sm">
                 PARAMÈTRES
               </span>
               <button
@@ -197,7 +197,7 @@ export default function SettingsPanel({ sendMessage, isLoaded }) {
 
               {/* ── CAMÉRA ── */}
               <SectionLabel>Caméra</SectionLabel>
-              <div className="flex flex-col gap-6">
+              <div className="flex flex-col gap-6 touch:gap-4">
                 <SliderRow
                   label="Sensibilité souris"
                   value={settings.mouseSensitivity}

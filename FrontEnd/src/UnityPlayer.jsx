@@ -43,7 +43,7 @@ export default function UnityPlayer({ unityProvider, sendMessage, isLoaded, requ
       <button
         onClick={toggleFullscreen}
         title={isFullscreen ? 'Quitter le plein écran' : 'Plein écran'}
-        className="fixed top-7 left-7 z-[200] w-14 h-14 rounded-full bg-[rgba(0,20,50,0.85)] border border-[rgba(0,180,255,0.5)] text-neon-blue font-mono text-xl shadow-neon-fab flex items-center justify-center cursor-pointer transition-all duration-200 hover:bg-[rgba(0,40,90,0.95)] hover:border-neon-blue hover:shadow-neon-fab-hover hover:text-white"
+        className="fixed top-7 touch:top-4 left-7 touch:left-4 z-[200] w-14 h-14 touch:w-10 touch:h-10 rounded-full bg-[rgba(0,20,50,0.85)] border border-[rgba(0,180,255,0.5)] text-neon-blue font-mono text-xl touch:text-sm shadow-neon-fab flex items-center justify-center cursor-pointer transition-all duration-200 hover:bg-[rgba(0,40,90,0.95)] hover:border-neon-blue hover:shadow-neon-fab-hover hover:text-white"
       >
         {isFullscreen ? '⊡' : '⛶'}
       </button>

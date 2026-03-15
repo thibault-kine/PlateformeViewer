@@ -11,7 +11,7 @@ export default function StatusLegend() {
   const [expanded, setExpanded] = useState(false);
 
   return (
-    <div className="fixed bottom-7 left-7 z-[100]">
+    <div className="fixed bottom-7 touch:bottom-4 left-7 touch:left-4 z-[100]">
       <div className="relative bg-[rgba(3,14,36,0.92)] border border-[rgba(0,160,255,0.3)] rounded-lg overflow-hidden shadow-neon-modal">
 
         <div className="absolute inset-0 bg-grid-modal pointer-events-none" />
