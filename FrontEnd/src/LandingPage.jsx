@@ -1,6 +1,6 @@
 import { Canvas, useFrame } from '@react-three/fiber';
 import { useGLTF, Environment } from '@react-three/drei';
-import { useRef, useEffect, useCallback } from 'react';
+import { useRef, useEffect, useCallback, Component } from 'react';
 import * as THREE from 'three';
 
 // ── Logo mesh ──────────────────────────────────────────────────────────────
@@ -46,6 +46,22 @@ function Logo({ mousePos }) {
   );
 }
 
+// ── Error boundary for the 3D canvas ──────────────────────────────────────
+class CanvasBoundary extends Component {
+  state = { failed: false };
+  static getDerivedStateFromError() { return { failed: true }; }
+  render() {
+    if (this.state.failed) {
+      return (
+        <div className="w-full h-full flex items-center justify-center">
+          <span className="font-mono text-[rgba(0,180,255,0.4)] text-sm tracking-widest">[ 3D N/A ]</span>
+        </div>
+      );
+    }
+    return this.props.children;
+  }
+}
+
 // ── Landing page ───────────────────────────────────────────────────────────
 export default function LandingPage({ loadingProgression, isLoaded, onEnter }) {
   const mousePos = useRef({ x: 0, y: 0 });
@@ -65,7 +81,7 @@ export default function LandingPage({ loadingProgression, isLoaded, onEnter }) {
 
   return (
     <div
-      className="fixed inset-0 bg-navy-950 flex flex-col items-center justify-center overflow-hidden"
+      className="fixed inset-0 bg-navy-950 flex flex-col items-center justify-center overflow-hidden px-6"
       onMouseMove={handleMouseMove}
     >
       {/* Animated grid */}
@@ -75,30 +91,32 @@ export default function LandingPage({ loadingProgression, isLoaded, onEnter }) {
       <div className="absolute left-1/2 top-[30%] w-[600px] h-[600px] rounded-full bg-radial-glow pointer-events-none animate-glow-pulse" />
 
       {/* Three.js canvas */}
-      <div className="relative z-10 w-[420px] h-[380px] cursor-grab drop-shadow-[0_0_30px_rgba(0,160,255,0.5)]">
-        <Canvas camera={{ position: [0, 0, 4], fov: 45 }} gl={{ antialias: true, alpha: true }}>
-          <ambientLight intensity={0.3} color="#0033aa" />
-          <pointLight position={[3, 3, 3]}   intensity={8} color="#00aaff" />
-          <pointLight position={[-3, -2, 2]} intensity={5} color="#ffffff" />
-          <pointLight position={[0, -3, 1]}  intensity={3} color="#0055ff" />
-          <Logo mousePos={mousePos} />
-          <Environment preset="night" />
-        </Canvas>
+      <div className="relative z-10 w-full max-w-[420px] h-[min(380px,45vw)] cursor-grab drop-shadow-[0_0_30px_rgba(0,160,255,0.5)]">
+        <CanvasBoundary>
+          <Canvas camera={{ position: [0, 0, 4], fov: 45 }} gl={{ antialias: true, alpha: true }}>
+            <ambientLight intensity={0.3} color="#0033aa" />
+            <pointLight position={[3, 3, 3]}   intensity={8} color="#00aaff" />
+            <pointLight position={[-3, -2, 2]} intensity={5} color="#ffffff" />
+            <pointLight position={[0, -3, 1]}  intensity={3} color="#0055ff" />
+            <Logo mousePos={mousePos} />
+            <Environment preset="night" />
+          </Canvas>
+        </CanvasBoundary>
       </div>
 
       {/* Bottom section */}
-      <div className="relative z-10 flex flex-col items-center gap-3 -mt-2">
+      <div className="relative z-10 flex flex-col items-center gap-3 -mt-2 w-full max-w-[560px]">
 
         {/* Title */}
-        <h1 className="m-0 font-mono text-[3.8rem] font-bold tracking-[0.35em] text-white text-shadow-neon">
+        <h1 className="m-0 font-mono text-[clamp(1.6rem,8vw,3.8rem)] font-bold tracking-[0.35em] text-white text-shadow-neon text-center">
           LA PLATEFORME
         </h1>
-        <p className="m-0 font-mono text-[1rem] tracking-[0.3em] text-[rgba(0,180,255,0.6)] uppercase">
+        <p className="m-0 font-mono text-[clamp(0.6rem,3vw,1rem)] tracking-[0.3em] text-[rgba(0,180,255,0.6)] uppercase text-center">
           Viewer Immersif · Marseille
         </p>
 
         {/* Loading bar */}
-        <div className="w-[560px] flex flex-col gap-1.5 mt-2">
+        <div className="w-full flex flex-col gap-1.5 mt-2">
           <div className="relative w-full h-1 bg-[rgba(0,80,180,0.25)] rounded-sm overflow-visible shadow-[0_0_0_1px_rgba(0,120,255,0.15),inset_0_0_6px_rgba(0,40,120,0.4)]">
             {/* Fill */}
             <div

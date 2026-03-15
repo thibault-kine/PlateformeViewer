@@ -41,7 +41,7 @@ export default function ControlsModal() {
       <button
         onClick={() => setOpen(true)}
         title="Contrôles"
-        className="fixed bottom-7 right-7 z-[200] w-14 h-14 rounded-full bg-[rgba(0,20,50,0.85)] border border-[rgba(0,180,255,0.5)] text-neon-blue font-mono text-2xl font-bold shadow-neon-fab flex items-center justify-center cursor-pointer transition-all duration-200 hover:bg-[rgba(0,40,90,0.95)] hover:border-neon-blue hover:shadow-neon-fab-hover hover:text-white"
+        className="fixed top-[9.5rem] left-7 z-[200] w-14 h-14 rounded-full bg-[rgba(0,20,50,0.85)] border border-[rgba(0,180,255,0.5)] text-neon-blue font-mono text-2xl font-bold shadow-neon-fab flex items-center justify-center cursor-pointer transition-all duration-200 hover:bg-[rgba(0,40,90,0.95)] hover:border-neon-blue hover:shadow-neon-fab-hover hover:text-white"
       >
         ?
       </button>
