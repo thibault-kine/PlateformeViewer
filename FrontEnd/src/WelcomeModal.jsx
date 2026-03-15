@@ -32,7 +32,7 @@ export default function WelcomeModal() {
   return (
     /* Full-screen overlay — dark + animated grid so Unity scene shows through */
     <div
-      className="fixed inset-0 z-[300] animate-overlay-in overflow-y-auto"
+      className="fixed inset-0 z-[300] animate-overlay-in"
       onClick={() => setOpen(false)}
     >
       {/* Dark tint */}
@@ -40,8 +40,10 @@ export default function WelcomeModal() {
       {/* Animated neon grid */}
       <div className="absolute inset-0 bg-grid-neon animate-grid-drift opacity-50 pointer-events-none" />
 
+      {/* Scroll wrapper — must be on a child div, not the fixed element (Firefox compat) */}
+      <div className="absolute inset-0 overflow-y-auto">
       {/* Centred modal */}
-      <div className="relative flex items-start sm:items-center justify-center w-full min-h-full overflow-y-auto py-4">
+      <div className="relative flex items-start sm:items-center justify-center w-full min-h-full py-4">
         <div
           className="relative w-full max-w-[900px] mx-4 my-auto bg-[rgba(3,14,36,0.96)] border border-[rgba(0,160,255,0.3)] rounded-xl px-5 py-8 sm:px-14 sm:py-12 overflow-hidden shadow-neon-modal animate-modal-in"
           onClick={(e) => e.stopPropagation()}
@@ -113,6 +115,7 @@ export default function WelcomeModal() {
             </p>
           </div>
         </div>
+      </div>
       </div>
     </div>
   );
