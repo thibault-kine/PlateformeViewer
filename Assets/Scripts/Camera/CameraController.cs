@@ -71,13 +71,17 @@ public class CameraController : MonoBehaviour
         var mouse = Mouse.current;
         if (mouse == null) return;
 
+        // Hide cursor while looking; avoid CursorLockMode in WebGL — the Pointer Lock
+        // API takes 1-2 frames to acquire and causes delta spikes / stutter.
         if (mouse.rightButton.wasPressedThisFrame)
-            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
         if (mouse.rightButton.wasReleasedThisFrame)
-            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
 
-        if (mouse.rightButton.isPressed)
+        if (mouse.rightButton.isPressed && !mouse.rightButton.wasPressedThisFrame)
         {
+            // Skip delta on the press frame: the browser accumulates movement
+            // since the click, which would produce a large unwanted jump.
             var delta = mouse.delta.ReadValue();
             float sens = config != null ? config.mouseSensitivity : 1.5f;
             _yaw   += delta.x * sens;

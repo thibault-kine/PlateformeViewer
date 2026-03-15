@@ -21,8 +21,8 @@ MonoBehaviour:
   cameraBoostMultiplier: 3
   mouseSensitivity: 1.5
   scrollSpeed: 20
-  cameraStartPosition: {x: 0, y: 30, z: -20}
-  cameraStartRotation: {x: 45, y: 0, z: 0}
+  cameraStartPosition: {x: -60, y: 4, z: -8.5}
+  cameraStartRotation: {x: 0, y: 90, z: 0}
   visualConfig: {fileID: 11400000, guid: 848e443cb74b647eabf0978084451bc1, type: 2}
   rooms:
   - {fileID: 11400000, guid: 08235fe2c8c454558be812b6671473d8, type: 2}
