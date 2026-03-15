@@ -19,6 +19,9 @@ public class BuildingManager : MonoBehaviour
 
     Camera _cam;
 
+    /// <summary>Exposes config to UnityBridge for runtime tuning.</summary>
+    public BuildingConfigSO GetConfig() => config;
+
     void Start()
     {
         _cam = Camera.main;

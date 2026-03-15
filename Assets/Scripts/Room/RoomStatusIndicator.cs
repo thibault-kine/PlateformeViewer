@@ -21,6 +21,8 @@ public class RoomStatusIndicator : MonoBehaviour
     readonly List<Material> _runtimeMats  = new();
     readonly List<Color>   _originalColors = new();
 
+    string _lastStatus = "unknown"; // cached so SetStatusVisible(true) can re-apply
+
     // Not serialized — always reads from code so stale scene values can't override it
     const float StatusBlend     = 0.5f;  // 75 % status color, 25 % original
     const float EmissionBoost   = 1f;   // HDR-range emission for URP / Linear colour space
@@ -50,6 +52,7 @@ public class RoomStatusIndicator : MonoBehaviour
     public void SetStatus(string status)
     {
         if (_runtimeMats.Count == 0) return;
+        _lastStatus = status;
 
         Color statusColor = visualConfig != null
             ? visualConfig.GetStatusColor(status)
@@ -80,6 +83,31 @@ public class RoomStatusIndicator : MonoBehaviour
             }
         }
     }
+
+    /// <summary>Show or hide status tint. When hidden, original material colours are restored.</summary>
+    public void SetStatusVisible(bool visible)
+    {
+        if (visible)
+        {
+            SetStatus(_lastStatus);
+        }
+        else
+        {
+            for (int i = 0; i < _runtimeMats.Count; i++)
+            {
+                var mat = _runtimeMats[i];
+                if (mat == null) continue;
+                mat.color = _originalColors[i];
+                if (mat.HasProperty("_EmissionColor"))
+                {
+                    mat.DisableKeyword("_EMISSION");
+                    mat.SetColor("_EmissionColor", Color.black);
+                }
+            }
+        }
+    }
+
+    public void RestoreOriginalColors() => SetStatusVisible(false);
 
     void OnDestroy()
     {
