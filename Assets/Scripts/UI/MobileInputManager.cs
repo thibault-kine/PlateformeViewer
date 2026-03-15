@@ -60,10 +60,11 @@ public class MobileInputManager : MonoBehaviour
 
     void Start()
     {
-        if (Touchscreen.current == null)
+        // DeviceType.Handheld is the reliable WebGL mobile check.
+        // Touchscreen.current alone is not sufficient — desktop Chrome can report
+        // a touchscreen even on non-touch hardware.
+        if (SystemInfo.deviceType != DeviceType.Handheld)
         {
-            // Not a touch device — leave Instance null so BuildingManager
-            // keeps using its normal mouse-based click detection.
             enabled = false;
             return;
         }
