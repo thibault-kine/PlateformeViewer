@@ -16,7 +16,7 @@ MonoBehaviour:
   roomName: SALLE DES SUCRES
   capacity: 250
   roomType: Grande salle
-  status: free
+  status: 
   lastUpdated: 2026-03-11T09:00:00Z
   currentEvent:
     title: 

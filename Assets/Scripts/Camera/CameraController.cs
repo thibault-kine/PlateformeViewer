@@ -18,6 +18,12 @@ public class CameraController : MonoBehaviour
 
     float _pitch, _yaw;
 
+    // Set by MobileInputManager each frame
+    public Vector2 JoystickMove  { get; set; }
+    public Vector2 JoystickLook  { get; set; }
+    public bool    MobileAscend  { get; set; }
+    public bool    MobileDescend { get; set; }
+
     void Start()
     {
         if (config != null)
@@ -52,17 +58,32 @@ public class CameraController : MonoBehaviour
 
     void HandleLook()
     {
+        // ── Joystick look (mobile) ────────────────────────────────────────────
+        if (JoystickLook.sqrMagnitude > 0.001f)
+        {
+            float sens      = config != null ? config.mouseSensitivity : 1.5f;
+            float lookSpeed = 120f; // degrees per second at full deflection
+            _yaw   += JoystickLook.x * lookSpeed * sens * Time.deltaTime;
+            _pitch -= JoystickLook.y * lookSpeed * sens * Time.deltaTime;
+            _pitch  = Mathf.Clamp(_pitch, -89f, 89f);
+            transform.rotation = Quaternion.Euler(_pitch, _yaw, 0f);
+        }
+
+        // ── Mouse look (desktop) ──────────────────────────────────────────────
         var mouse = Mouse.current;
         if (mouse == null) return;
 
-        // Lock/unlock cursor while right-click is held
+        // Hide cursor while looking; avoid CursorLockMode in WebGL — the Pointer Lock
+        // API takes 1-2 frames to acquire and causes delta spikes / stutter.
         if (mouse.rightButton.wasPressedThisFrame)
-            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
         if (mouse.rightButton.wasReleasedThisFrame)
-            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
 
-        if (mouse.rightButton.isPressed)
+        if (mouse.rightButton.isPressed && !mouse.rightButton.wasPressedThisFrame)
         {
+            // Skip delta on the press frame: the browser accumulates movement
+            // since the click, which would produce a large unwanted jump.
             var delta = mouse.delta.ReadValue();
             float sens = config != null ? config.mouseSensitivity : 1.5f;
             _yaw   += delta.x * sens;
@@ -82,12 +103,28 @@ public class CameraController : MonoBehaviour
 
     void HandleMovement()
     {
+        float baseSpeed = config != null ? config.cameraSpeed : 10f;
+
+        // ── Joystick movement (mobile) ────────────────────────────────────────
+        if (JoystickMove.sqrMagnitude > 0.001f)
+        {
+            Vector3 moveDir = transform.forward * JoystickMove.y
+                            + transform.right   * JoystickMove.x;
+            if (moveDir.sqrMagnitude > 0.001f)
+                transform.position += moveDir.normalized
+                                    * (JoystickMove.magnitude * baseSpeed * Time.deltaTime);
+        }
+
+        // ── Altitude buttons (mobile) ─────────────────────────────────────────
+        if (MobileAscend)  transform.position += Vector3.up   * baseSpeed * Time.deltaTime;
+        if (MobileDescend) transform.position += Vector3.down * baseSpeed * Time.deltaTime;
+
+        // ── Keyboard movement (desktop) ───────────────────────────────────────
         var kb = Keyboard.current;
         if (kb == null) return;
 
-        float baseSpeed  = config != null ? config.cameraSpeed : 10f;
-        float boost      = config != null ? config.cameraBoostMultiplier : 3f;
-        float speed      = baseSpeed * (kb.shiftKey.isPressed ? boost : 1f);
+        float boost = config != null ? config.cameraBoostMultiplier : 3f;
+        float speed = baseSpeed * (kb.shiftKey.isPressed ? boost : 1f);
 
         Vector3 dir = Vector3.zero;
 

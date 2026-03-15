@@ -1,20 +1,27 @@
 {
-  "timestamp": "2026-03-11T09:00:00Z",
-  "room": {
-    "code": "Bleu-18",
-    "name": "Bleu-18",
-    "capacity": 8,
-    "type": "Salle de réunion",
-    "status": "occupied",
-    "current_event": {
+  "code": "Bleu-18",
+  "name": "Bleu-18",
+  "capacity": 8,
+  "type": "Salle de réunion",
+  "status": "occupied",
+  "current_event": {
+    "title": "Réunion Innovation",
+    "start": "2026-03-11T08:30:00Z",
+    "end": "2026-03-11T10:30:00Z",
+    "organizer": "M. Garcia"
+  },
+  "next_event": {
+    "title": "",
+    "start": "",
+    "end": "",
+    "organizer": ""
+  },
+  "schedule_today": [
+    {
       "title": "Réunion Innovation",
       "start": "2026-03-11T08:30:00Z",
       "end": "2026-03-11T10:30:00Z",
       "organizer": "M. Garcia"
-    },
-    "next_event": { "title": "", "start": "", "end": "", "organizer": "" },
-    "schedule_today": [
-      { "title": "Réunion Innovation", "start": "2026-03-11T08:30:00Z", "end": "2026-03-11T10:30:00Z", "organizer": "M. Garcia" }
-    ]
-  }
+    }
+  ]
 }

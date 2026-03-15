@@ -45,4 +45,11 @@ public class SceneStyler : MonoBehaviour
             sun.color     = config.sunColor;
         }
     }
+
+    /// <summary>Runtime ambient intensity override — called by UnityBridge via sendMessage.</summary>
+    public void SetAmbientIntensity(float intensity)
+    {
+        if (config == null) return;
+        RenderSettings.ambientLight = config.ambientColor * Mathf.Clamp(intensity, 0f, 2f);
+    }
 }

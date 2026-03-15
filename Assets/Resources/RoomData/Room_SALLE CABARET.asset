@@ -16,7 +16,7 @@ MonoBehaviour:
   roomName: SALLE CABARET
   capacity: 100
   roomType: Grande salle
-  status: occupied
+  status: 
   lastUpdated: 2026-03-11T09:00:00Z
   currentEvent:
     title: "Pr\xE9sentation de projets"

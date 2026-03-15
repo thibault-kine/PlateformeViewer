@@ -1,15 +1,27 @@
 {
-  "timestamp": "2026-03-11T09:00:00Z",
-  "room": {
-    "code": "Salle Bocaux",
-    "name": "Salle Bocaux",
-    "capacity": 100,
-    "type": "Grande salle",
-    "status": "free",
-    "current_event": { "title": "", "start": "", "end": "", "organizer": "" },
-    "next_event": { "title": "", "start": "", "end": "", "organizer": "" },
-    "schedule_today": [
-      { "title": "Soirée networking", "start": "2026-03-11T18:00:00Z", "end": "2026-03-11T21:00:00Z", "organizer": "Mme Dumont" }
-    ]
-  }
+  "code": "Salle Bocaux",
+  "name": "Salle Bocaux",
+  "capacity": 100,
+  "type": "Grande salle",
+  "status": "free",
+  "current_event": {
+    "title": "",
+    "start": "",
+    "end": "",
+    "organizer": ""
+  },
+  "next_event": {
+    "title": "",
+    "start": "",
+    "end": "",
+    "organizer": ""
+  },
+  "schedule_today": [
+    {
+      "title": "Soirée networking",
+      "start": "2026-03-11T18:00:00Z",
+      "end": "2026-03-11T21:00:00Z",
+      "organizer": "Mme Dumont"
+    }
+  ]
 }

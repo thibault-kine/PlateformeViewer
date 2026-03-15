@@ -13,18 +13,43 @@ MonoBehaviour:
   m_Name: BuildingConfig_
   m_EditorClassIdentifier: Assembly-CSharp::BuildingConfigSO
   buildingName: La Plateforme
-  apiBaseUrl: 
+  apiBaseUrl: http://localhost:8080/api/v1
   apiBaseUrl2: 
   useMockData: 1
   refreshInterval: 60
-  cameraSpeed: 10
+  cameraSpeed: 5
   cameraBoostMultiplier: 3
-  mouseSensitivity: 1.5
+  mouseSensitivity: 0.5
   scrollSpeed: 20
-  cameraStartPosition: {x: 0, y: 30, z: -20}
-  cameraStartRotation: {x: 45, y: 0, z: 0}
+  cameraStartPosition: {x: -60, y: 4, z: -8.5}
+  cameraStartRotation: {x: 0, y: 90, z: 0}
   visualConfig: {fileID: 11400000, guid: 848e443cb74b647eabf0978084451bc1, type: 2}
   rooms:
-  - {fileID: 11400000, guid: 9afa69d3330fe4263b63cd3bba9bdbee, type: 2}
-  - {fileID: 11400000, guid: 045c557e2d15e453190391d0d0ac5c19, type: 2}
-  - {fileID: 11400000, guid: 51ffa87fe701d4703a8ddddd4f2261ca, type: 2}
+  - {fileID: 11400000, guid: 08235fe2c8c454558be812b6671473d8, type: 2}
+  - {fileID: 11400000, guid: 700b73eb00a9f44c48b2f74214de9e4b, type: 2}
+  - {fileID: 11400000, guid: 8e8cfbccd05ac4803aca3cdfe6c05a7c, type: 2}
+  - {fileID: 11400000, guid: 847276c4dfed74dd7a7dc7bc3c8bf982, type: 2}
+  - {fileID: 11400000, guid: 78538fbf4cf3d47e99807d548ea89d72, type: 2}
+  - {fileID: 11400000, guid: 24c60086a5aa743308ce4194959e8385, type: 2}
+  - {fileID: 11400000, guid: ed54b2f7d80b746ebab0beb16d390db4, type: 2}
+  - {fileID: 11400000, guid: 607fc2d25c05e4632bbc4f82c8eb81d9, type: 2}
+  - {fileID: 11400000, guid: d63c9f77b3f6d4e648073ccd43e5e84a, type: 2}
+  - {fileID: 11400000, guid: c03b0feeab5414e3295c21b2d28287b6, type: 2}
+  - {fileID: 11400000, guid: c86f1c5f713384906a96b22eb303a301, type: 2}
+  - {fileID: 11400000, guid: c67ddf379e4724cfbb8c4c7385ae9c30, type: 2}
+  - {fileID: 11400000, guid: a063b035b16d64e29828b56b0f05111a, type: 2}
+  - {fileID: 11400000, guid: ff73796fbae7541ca9c9c99d0c1b0d3c, type: 2}
+  - {fileID: 11400000, guid: e0fb8d08779204af0a946bf14a197912, type: 2}
+  - {fileID: 11400000, guid: 369db3a007f6246f7af03d6c89a3b449, type: 2}
+  - {fileID: 11400000, guid: 61bf6d116bbe945b889571b56413ab14, type: 2}
+  - {fileID: 11400000, guid: 069f8b21298ec4ad8af90a27241d8dbd, type: 2}
+  - {fileID: 11400000, guid: 00ed843d6e959de45b94abadfeb46510, type: 2}
+  - {fileID: 11400000, guid: b83f2ba6b6121ab478732b566551e4da, type: 2}
+  - {fileID: 11400000, guid: be77dae0a906a446097bf8792b2a0882, type: 2}
+  - {fileID: 11400000, guid: 60248b798cd35469484aefc950617f51, type: 2}
+  - {fileID: 11400000, guid: 1e724fb41fd4e4aea9f38b2c07a4e957, type: 2}
+  - {fileID: 11400000, guid: a7f3cb5cb325a479295cd98fc731e4f4, type: 2}
+  - {fileID: 11400000, guid: a018092b554144c70b366e83eb949e78, type: 2}
+  - {fileID: 11400000, guid: adaa84cd367b34eafb34f10b52c7c3d9, type: 2}
+  - {fileID: 11400000, guid: 2b0ae34eaaa0a41af9f9502f1906bc48, type: 2}
+  - {fileID: 11400000, guid: 129582ac4165a42d89b8bc3fbd148152, type: 2}

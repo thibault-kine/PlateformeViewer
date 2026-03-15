@@ -112,5 +112,12 @@ InitTestScene*.unity*
 /Build
 /Builds/
 /Build/
+UnityBuild/
 
 node_modules/
+
+# Unity WebGL build output (large binary files, generated locally)
+FrontEnd/public/unity/
+
+# Vite build output
+FrontEnd/dist/

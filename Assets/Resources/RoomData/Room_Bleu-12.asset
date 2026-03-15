@@ -16,7 +16,7 @@ MonoBehaviour:
   roomName: Bleu-12
   capacity: 24
   roomType: Salle de travail
-  status: free
+  status: 
   lastUpdated: 2026-03-11T09:00:00Z
   currentEvent:
     title: 

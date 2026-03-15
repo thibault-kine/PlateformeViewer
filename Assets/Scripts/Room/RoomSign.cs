@@ -29,7 +29,7 @@ public class RoomSign : MonoBehaviour
 
     [Header("Text")]
     [SerializeField] float numberFontSize = 120f;
-    [SerializeField] Color numberColor    = new(1f, 1f, 1f, 0.25f); // translucent white
+    [SerializeField] Color numberColor    = new(1f, 1f, 1f, 1f); // fully opaque white
 
     // Zone color table — extend if new zones are added
     static readonly (string prefix, Color color)[] ZoneColors =

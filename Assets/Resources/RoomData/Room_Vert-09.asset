@@ -16,7 +16,7 @@ MonoBehaviour:
   roomName: Vert-09
   capacity: 8
   roomType: "Salle de r\xE9union"
-  status: occupied
+  status: 
   lastUpdated: 2026-03-11T09:00:00Z
   currentEvent:
     title: "R\xE9union d'\xE9quipe"

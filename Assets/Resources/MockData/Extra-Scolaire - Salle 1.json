@@ -1,21 +1,33 @@
 {
-  "timestamp": "2026-03-11T09:00:00Z",
-  "room": {
-    "code": "Extra-Scolaire - Salle 1",
-    "name": "Extra-Scolaire - Salle 1",
-    "capacity": 50,
-    "type": "Salle de travail",
-    "status": "occupied",
-    "current_event": {
+  "code": "Extra-Scolaire - Salle 1",
+  "name": "Extra-Scolaire - Salle 1",
+  "capacity": 50,
+  "type": "Salle de travail",
+  "status": "occupied",
+  "current_event": {
+    "title": "Atelier Robotique",
+    "start": "2026-03-11T08:00:00Z",
+    "end": "2026-03-11T12:00:00Z",
+    "organizer": "M. Bernard"
+  },
+  "next_event": {
+    "title": "",
+    "start": "",
+    "end": "",
+    "organizer": ""
+  },
+  "schedule_today": [
+    {
       "title": "Atelier Robotique",
       "start": "2026-03-11T08:00:00Z",
       "end": "2026-03-11T12:00:00Z",
       "organizer": "M. Bernard"
     },
-    "next_event": { "title": "", "start": "", "end": "", "organizer": "" },
-    "schedule_today": [
-      { "title": "Atelier Robotique", "start": "2026-03-11T08:00:00Z", "end": "2026-03-11T12:00:00Z", "organizer": "M. Bernard" },
-      { "title": "Cours Électronique", "start": "2026-03-11T14:00:00Z", "end": "2026-03-11T17:00:00Z", "organizer": "M. Garcia" }
-    ]
-  }
+    {
+      "title": "Cours Électronique",
+      "start": "2026-03-11T14:00:00Z",
+      "end": "2026-03-11T17:00:00Z",
+      "organizer": "M. Garcia"
+    }
+  ]
 }

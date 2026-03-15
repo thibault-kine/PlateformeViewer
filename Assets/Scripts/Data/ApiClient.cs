@@ -61,9 +61,9 @@ public class ApiClient : MonoBehaviour
             yield break;
         }
 
-        if (response?.room == null)
+        if (response == null || string.IsNullOrEmpty(response.code))
         {
-            onError?.Invoke("Response missing 'room' field.");
+            onError?.Invoke("Response missing expected fields.");
             yield break;
         }
 

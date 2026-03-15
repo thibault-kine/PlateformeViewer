@@ -16,7 +16,7 @@ MonoBehaviour:
   roomName: Bleu-OpenSpace
   capacity: 100
   roomType: OpenSpace
-  status: occupied
+  status: 
   lastUpdated: 2026-03-11T09:00:00Z
   currentEvent:
     title: Forum des alternances

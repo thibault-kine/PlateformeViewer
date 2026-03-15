@@ -1,21 +1,33 @@
 {
-  "timestamp": "2026-03-11T09:00:00Z",
-  "room": {
-    "code": "Workshop 1",
-    "name": "Workshop 1",
-    "capacity": 20,
-    "type": "Salle de travail",
-    "status": "occupied",
-    "current_event": {
+  "code": "Workshop 1",
+  "name": "Workshop 1",
+  "capacity": 20,
+  "type": "Salle de travail",
+  "status": "occupied",
+  "current_event": {
+    "title": "Workshop UX Design",
+    "start": "2026-03-11T08:00:00Z",
+    "end": "2026-03-11T12:00:00Z",
+    "organizer": "Mme Leroy"
+  },
+  "next_event": {
+    "title": "",
+    "start": "",
+    "end": "",
+    "organizer": ""
+  },
+  "schedule_today": [
+    {
       "title": "Workshop UX Design",
       "start": "2026-03-11T08:00:00Z",
       "end": "2026-03-11T12:00:00Z",
       "organizer": "Mme Leroy"
     },
-    "next_event": { "title": "", "start": "", "end": "", "organizer": "" },
-    "schedule_today": [
-      { "title": "Workshop UX Design", "start": "2026-03-11T08:00:00Z", "end": "2026-03-11T12:00:00Z", "organizer": "Mme Leroy" },
-      { "title": "Workshop Figma", "start": "2026-03-11T14:00:00Z", "end": "2026-03-11T17:00:00Z", "organizer": "Mme Leroy" }
-    ]
-  }
+    {
+      "title": "Workshop Figma",
+      "start": "2026-03-11T14:00:00Z",
+      "end": "2026-03-11T17:00:00Z",
+      "organizer": "Mme Leroy"
+    }
+  ]
 }
