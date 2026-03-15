@@ -234,50 +234,105 @@ public class MobileInputManager : MonoBehaviour
     // ── Altitude button factory ───────────────────────────────────────────────
 
     /// <param name="stackIndex">0 = bottom button (▼), 1 = top button (▲)</param>
-    static HoldButton CreateAltitudeButton(Transform parent, string arrow, int stackIndex)
+    static HoldButton CreateAltitudeButton(Transform parent, string name, int stackIndex)
     {
         const float size    = 64f;
-        const float margin  = 24f;  // from screen edge
+        const float margin  = 24f;
         const float spacing = 10f;
+        bool pointingUp = stackIndex == 1;
 
-        var go = new GameObject("AltBtn_" + arrow);
+        var go = new GameObject("AltBtn_" + name);
         go.transform.SetParent(parent, false);
 
         var rt = go.AddComponent<RectTransform>();
-        // Anchor: bottom-right corner
         rt.anchorMin = rt.anchorMax = new Vector2(1f, 0f);
         rt.pivot     = new Vector2(1f, 0f);
         rt.sizeDelta = new Vector2(size, size);
         float yOffset = margin + stackIndex * (size + spacing);
         rt.anchoredPosition = new Vector2(-margin, yOffset);
 
-        // Background circle
+        // Single sprite: circle background + triangle baked in together
         var img = go.AddComponent<Image>();
-        img.sprite        = CreateCircleSprite(96,
-            new Color(0.01f, 0.05f, 0.14f, 0.82f),
-            new Color(0f, 0.70f, 1f, 0.65f), 6f);
+        img.sprite        = CreateAltitudeSprite(96, pointingUp);
         img.raycastTarget = true;
-
-        // Arrow label
-        var textGO = new GameObject("Label");
-        textGO.transform.SetParent(go.transform, false);
-        var textRT = textGO.AddComponent<RectTransform>();
-        textRT.anchorMin = Vector2.zero;
-        textRT.anchorMax = Vector2.one;
-        textRT.sizeDelta = Vector2.zero;
-        textRT.anchoredPosition = Vector2.zero;
-
-        var text = textGO.AddComponent<Text>();
-        text.text           = arrow;
-        text.font           = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
-        text.fontSize       = 28;
-        text.fontStyle      = FontStyle.Bold;
-        text.alignment      = TextAnchor.MiddleCenter;
-        text.color          = new Color(0f, 0.80f, 1f, 0.90f);
-        text.raycastTarget  = false;
 
         return go.AddComponent<HoldButton>();
     }
+
+    /// Generates a circle with a filled triangle arrow drawn inside it.
+    static Sprite CreateAltitudeSprite(int res, bool pointingUp)
+    {
+        var tex = new Texture2D(res, res, TextureFormat.RGBA32, false);
+        tex.filterMode = FilterMode.Bilinear;
+
+        Color bgFill   = new Color(0.01f, 0.05f, 0.14f, 0.82f);
+        Color border   = new Color(0f, 0.70f, 1f, 0.65f);
+        Color arrow    = new Color(0f, 0.82f, 1f, 0.95f);
+        float borderPx = 6f;
+
+        float c = (res - 1) * 0.5f;
+        float r = c;
+
+        for (int y = 0; y < res; y++)
+        for (int x = 0; x < res; x++)
+        {
+            float fx   = x / (float)(res - 1);
+            float fy   = y / (float)(res - 1);
+            float dist = Mathf.Sqrt((x - c) * (x - c) + (y - c) * (y - c));
+
+            Color col;
+            if (dist > r)
+            {
+                col = Color.clear;
+            }
+            else if (dist > r - borderPx)
+            {
+                col = border;
+            }
+            else if (IsInTriangle(fx, fy, pointingUp))
+            {
+                col = arrow;
+            }
+            else
+            {
+                col = bgFill;
+            }
+
+            tex.SetPixel(x, y, col);
+        }
+
+        tex.Apply();
+        return Sprite.Create(tex, new Rect(0, 0, res, res), new Vector2(0.5f, 0.5f), res);
+    }
+
+    /// Returns true if (px,py) in [0,1]² is inside the arrow triangle.
+    static bool IsInTriangle(float px, float py, bool pointingUp)
+    {
+        // Triangle occupies the middle 60% of the circle area
+        float ax, ay, bx, by, cx, cy;
+        if (pointingUp)
+        {
+            ax = 0.20f; ay = 0.30f;  // bottom-left
+            bx = 0.80f; by = 0.30f;  // bottom-right
+            cx = 0.50f; cy = 0.78f;  // apex top
+        }
+        else
+        {
+            ax = 0.20f; ay = 0.70f;  // top-left
+            bx = 0.80f; by = 0.70f;  // top-right
+            cx = 0.50f; cy = 0.22f;  // apex bottom
+        }
+
+        float d1 = TriSign(px, py, ax, ay, bx, by);
+        float d2 = TriSign(px, py, bx, by, cx, cy);
+        float d3 = TriSign(px, py, cx, cy, ax, ay);
+        bool hasNeg = d1 < 0f || d2 < 0f || d3 < 0f;
+        bool hasPos = d1 > 0f || d2 > 0f || d3 > 0f;
+        return !(hasNeg && hasPos);
+    }
+
+    static float TriSign(float px, float py, float ax, float ay, float bx, float by)
+        => (px - bx) * (ay - by) - (ax - bx) * (py - by);
 
     // ── Circle sprite (shared with VirtualJoystick) ───────────────────────────
 

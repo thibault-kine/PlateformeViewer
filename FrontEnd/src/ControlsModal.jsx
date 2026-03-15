@@ -20,7 +20,23 @@ function Key({ label, hint }) {
   );
 }
 
-// ── Mobile sub-component ──────────────────────────────────────────────────────
+// ── Mobile sub-components ─────────────────────────────────────────────────────
+
+// Mimics the in-game altitude button: circle + filled triangle arrow
+function AltButton({ up = false }) {
+  // Triangle points (percentage of the 40×40 viewBox)
+  const tri = up
+    ? 'M8,28 L32,28 L20,12 Z'   // pointing up
+    : 'M8,12 L32,12 L20,28 Z';  // pointing down
+  return (
+    <svg width="36" height="36" viewBox="0 0 40 40" fill="none"
+      className="drop-shadow-[0_0_6px_rgba(0,180,255,0.5)]">
+      <circle cx="20" cy="20" r="18" fill="rgba(1,5,14,0.82)"
+        stroke="rgba(0,180,255,0.65)" strokeWidth="2.2" />
+      <path d={tri} fill="rgba(0,210,255,0.95)" />
+    </svg>
+  );
+}
 
 // SVG circle that mimics the in-game virtual joystick visual
 function JoystickIcon() {
@@ -168,7 +184,7 @@ export default function ControlsModal() {
                   <MobileRow
                     icon={<JoystickIcon />}
                     title="Joystick gauche — Se déplacer"
-                    desc="Appuyez et faites glisser sur la moitié gauche de l'écran. Le joystick apparaît à l'endroit du toucher."
+                    desc="Appuyez et faites glisser sur la moitié gauche. Le joystick suit la direction de la caméra."
                   />
                   <MobileRow
                     icon={<JoystickIcon />}
@@ -177,11 +193,21 @@ export default function ControlsModal() {
                   />
                   <MobileRow
                     icon={
+                      /* Two stacked altitude buttons */
+                      <div className="flex flex-col gap-1 items-center">
+                        <AltButton up />
+                        <AltButton />
+                      </div>
+                    }
+                    title="Boutons altitude — Monter / Descendre"
+                    desc="Maintenez ▲ ou ▼ (coin bas-droit) pour monter ou descendre verticalement."
+                  />
+                  <MobileRow
+                    icon={
                       <svg width="64" height="64" viewBox="0 0 64 64" fill="none"
                         className="drop-shadow-[0_0_8px_rgba(0,180,255,0.4)]">
                         <circle cx="32" cy="32" r="20" stroke="rgba(0,180,255,0.5)" strokeWidth="2"
                           fill="rgba(1,5,14,0.7)" strokeDasharray="5 3"/>
-                        {/* Tap ripple */}
                         <circle cx="32" cy="32" r="6" fill="rgba(0,200,255,0.9)"
                           style={{ filter: 'drop-shadow(0 0 5px #00cfff)' }}/>
                       </svg>
