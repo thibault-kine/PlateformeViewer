@@ -66,16 +66,23 @@ class CanvasBoundary extends Component {
 export default function LandingPage({ loadingProgression, isLoaded, onEnter }) {
   const mousePos = useRef({ x: 0, y: 0 });
 
-  const handleMouseMove = useCallback((e) => {
+  const updatePos = useCallback((x, y) => {
     mousePos.current = {
-      x: (e.clientX / window.innerWidth)  * 2 - 1,
-      y: (e.clientY / window.innerHeight) * 2 - 1,
+      x: (x / window.innerWidth)  * 2 - 1,
+      y: (y / window.innerHeight) * 2 - 1,
     };
-    clearTimeout(handleMouseMove._t);
-    handleMouseMove._t = setTimeout(() => {
+    clearTimeout(updatePos._t);
+    updatePos._t = setTimeout(() => {
       mousePos.current = { x: 0, y: 0 };
     }, 3000);
   }, []);
+
+  const handleMouseMove = useCallback((e) => updatePos(e.clientX, e.clientY), [updatePos]);
+
+  const handleTouchMove = useCallback((e) => {
+    const t = e.touches[0];
+    if (t) updatePos(t.clientX, t.clientY);
+  }, [updatePos]);
 
   const pct = Math.round(loadingProgression * 100);
 
@@ -83,6 +90,7 @@ export default function LandingPage({ loadingProgression, isLoaded, onEnter }) {
     <div
       className="fixed inset-0 bg-navy-950 flex flex-col items-center justify-center overflow-hidden px-6"
       onMouseMove={handleMouseMove}
+      onTouchMove={handleTouchMove}
     >
       {/* Animated grid */}
       <div className="absolute inset-0 bg-grid-neon animate-grid-drift" />
