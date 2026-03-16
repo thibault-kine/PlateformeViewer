@@ -13,27 +13,20 @@ MonoBehaviour:
   m_Name: Room_Bleu-16
   m_EditorClassIdentifier: Assembly-CSharp::RoomDataSO
   roomCode: Bleu-16
-  roomName: Bleu-16
+  apiCode: Bleu-16-RDC-La-Plateforme-Hangar
+  roomName: La-Plateforme-Hangar-RDC-Bleu-16 (8)
   capacity: 8
   roomType: "Salle de r\xE9union"
-  status: 
-  lastUpdated: 2026-03-11T09:00:00Z
+  status: free
+  lastUpdated: 2026-03-16T11:55:34.0662900Z
   currentEvent:
-    title: "R\xE9union Finance"
-    start: 2026-03-11T08:00:00Z
-    end: 2026-03-11T09:30:00Z
-    organizer: Mme Dumont
+    title: 
+    start: 
+    end: 
+    organizer: 
   nextEvent:
     title: 
     start: 
     end: 
     organizer: 
-  scheduleToday:
-  - title: "R\xE9union Finance"
-    start: 2026-03-11T08:00:00Z
-    end: 2026-03-11T09:30:00Z
-    organizer: Mme Dumont
-  - title: Bilan mensuel
-    start: 2026-03-11T15:00:00Z
-    end: 2026-03-11T17:00:00Z
-    organizer: M. Ahmed
+  scheduleToday: []

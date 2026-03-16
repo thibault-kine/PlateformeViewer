@@ -13,23 +13,20 @@ MonoBehaviour:
   m_Name: Room_Rouge-22
   m_EditorClassIdentifier: Assembly-CSharp::RoomDataSO
   roomCode: Rouge-22
-  roomName: Rouge-22
+  apiCode: Rouge-22-RDC-La-Plateforme-Hangar
+  roomName: La-Plateforme-Hangar-RDC-Rouge-22 (8)
   capacity: 8
   roomType: "Salle de r\xE9union"
-  status: 
-  lastUpdated: 2026-03-11T09:00:00Z
+  status: free
+  lastUpdated: 2026-03-16T11:53:48.7236780Z
   currentEvent:
     title: 
     start: 
     end: 
     organizer: 
   nextEvent:
-    title: "R\xE9union \xE9quipe IA"
-    start: 2026-03-11T11:00:00Z
-    end: 2026-03-11T12:30:00Z
-    organizer: Mme Chen
-  scheduleToday:
-  - title: "R\xE9union \xE9quipe IA"
-    start: 2026-03-11T11:00:00Z
-    end: 2026-03-11T12:30:00Z
-    organizer: Mme Chen
+    title: 
+    start: 
+    end: 
+    organizer: 
+  scheduleToday: []

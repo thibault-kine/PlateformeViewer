@@ -2,8 +2,15 @@ using System;
 using System.Collections.Generic;
 
 /// <summary>
-/// Matches the flat response from GET /api/v1/rooms/{code}
+/// Matches GET /api/v1/rooms/{code} — room data is nested under "room".
 /// </summary>
+[Serializable]
+public class RoomApiWrapper
+{
+    public string timestamp;
+    public RoomApiResponse room;
+}
+
 [Serializable]
 public class RoomApiResponse
 {
@@ -25,5 +32,5 @@ public class EventData
     public string end;
     public string organizer;
 
-    public bool IsValid() => !string.IsNullOrEmpty(title);
+    public bool IsValid() => !string.IsNullOrEmpty(title) || !string.IsNullOrEmpty(organizer);
 }

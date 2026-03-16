@@ -13,23 +13,20 @@ MonoBehaviour:
   m_Name: Room_SALLE DES SUCRES
   m_EditorClassIdentifier: Assembly-CSharp::RoomDataSO
   roomCode: SALLE DES SUCRES
-  roomName: SALLE DES SUCRES
+  apiCode: SALLE-DES-SUCRES-RDC-La-Plateforme-Hangar
+  roomName: La-Plateforme-Hangar-RDC-SALLE DES SUCRES (250)
   capacity: 250
-  roomType: Grande salle
-  status: 
-  lastUpdated: 2026-03-11T09:00:00Z
+  roomType: 
+  status: free
+  lastUpdated: 2026-03-16T11:53:48.7227870Z
   currentEvent:
     title: 
     start: 
     end: 
     organizer: 
   nextEvent:
-    title: "Conf\xE9rence annuelle"
-    start: 2026-03-11T14:00:00Z
-    end: 2026-03-11T18:00:00Z
-    organizer: M. Dupont
-  scheduleToday:
-  - title: "Conf\xE9rence annuelle"
-    start: 2026-03-11T14:00:00Z
-    end: 2026-03-11T18:00:00Z
-    organizer: M. Dupont
+    title: 
+    start: 
+    end: 
+    organizer: 
+  scheduleToday: []

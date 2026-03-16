@@ -114,9 +114,10 @@ public class BuildingManager : MonoBehaviour
     {
         if (ApiClient.Instance == null) return;
 
+        string code = !string.IsNullOrEmpty(room.apiCode) ? room.apiCode : room.roomCode;
         ApiClient.Instance.FetchRoom(
             config.apiBaseUrl,
-            room.roomCode,
+            code,
             resp => room.UpdateFromResponse(resp),
             err =>
             {

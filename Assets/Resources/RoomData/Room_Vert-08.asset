@@ -13,31 +13,20 @@ MonoBehaviour:
   m_Name: Room_Vert-08
   m_EditorClassIdentifier: Assembly-CSharp::RoomDataSO
   roomCode: Vert-08
-  roomName: Vert-08
+  apiCode: Vert-08-RDC-La-Plateforme-Hangar
+  roomName: La-Plateforme-Hangar-RDC-Vert-08 (24)
   capacity: 24
   roomType: Salle de travail
-  status: 
-  lastUpdated: 2026-03-11T09:00:00Z
+  status: free
+  lastUpdated: 2026-03-16T11:53:48.7234080Z
   currentEvent:
-    title: Cours JavaScript
-    start: 2026-03-11T08:00:00Z
-    end: 2026-03-11T10:00:00Z
-    organizer: Mme Chen
+    title: 
+    start: 
+    end: 
+    organizer: 
   nextEvent:
-    title: Cours UX/UI
-    start: 2026-03-11T10:30:00Z
-    end: 2026-03-11T12:30:00Z
-    organizer: Mme Leroy
-  scheduleToday:
-  - title: Cours JavaScript
-    start: 2026-03-11T08:00:00Z
-    end: 2026-03-11T10:00:00Z
-    organizer: Mme Chen
-  - title: Cours UX/UI
-    start: 2026-03-11T10:30:00Z
-    end: 2026-03-11T12:30:00Z
-    organizer: Mme Leroy
-  - title: Atelier Blender
-    start: 2026-03-11T14:00:00Z
-    end: 2026-03-11T16:00:00Z
-    organizer: M. Bernard
+    title: 
+    start: 
+    end: 
+    organizer: 
+  scheduleToday: []

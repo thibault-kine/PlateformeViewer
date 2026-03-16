@@ -13,27 +13,32 @@ MonoBehaviour:
   m_Name: Room_Vert-05
   m_EditorClassIdentifier: Assembly-CSharp::RoomDataSO
   roomCode: Vert-05
-  roomName: Vert-05
+  apiCode: Vert-05-RDC-La-Plateforme-Hangar
+  roomName: La-Plateforme-Hangar-RDC-Vert-05 (24)
   capacity: 24
   roomType: Salle de travail
-  status: 
-  lastUpdated: 2026-03-11T09:00:00Z
+  status: free
+  lastUpdated: 2026-03-16T11:53:48.7231380Z
   currentEvent:
     title: 
     start: 
     end: 
     organizer: 
   nextEvent:
-    title: "Cours R\xE9seaux"
-    start: 2026-03-11T09:20:00Z
-    end: 2026-03-11T11:20:00Z
-    organizer: M. Dupont
+    title: 
+    start: 2026-03-16T13:00:00Z
+    end: 2026-03-16T15:00:00Z
+    organizer: celine.emptoz-lacote.pro@laplateforme.io
   scheduleToday:
-  - title: "Cours R\xE9seaux"
-    start: 2026-03-11T09:20:00Z
-    end: 2026-03-11T11:20:00Z
-    organizer: M. Dupont
-  - title: "Cours Cybers\xE9curit\xE9"
-    start: 2026-03-11T13:00:00Z
-    end: 2026-03-11T15:00:00Z
-    organizer: M. Garcia
+  - title: 
+    start: 2026-03-16T08:00:00Z
+    end: 2026-03-16T09:00:00Z
+    organizer: celine.emptoz-lacote.pro@laplateforme.io
+  - title: 
+    start: 2026-03-16T09:00:00Z
+    end: 2026-03-16T10:00:00Z
+    organizer: celine.emptoz-lacote.pro@laplateforme.io
+  - title: 
+    start: 2026-03-16T13:00:00Z
+    end: 2026-03-16T15:00:00Z
+    organizer: celine.emptoz-lacote.pro@laplateforme.io

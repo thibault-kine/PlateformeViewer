@@ -53,7 +53,9 @@ public class ApiClient : MonoBehaviour
         RoomApiResponse response = null;
         try
         {
-            response = JsonUtility.FromJson<RoomApiResponse>(json);
+            // API wraps room under { "timestamp": "...", "room": { ... } }
+            var wrapper = JsonUtility.FromJson<RoomApiWrapper>(json);
+            response = wrapper?.room ?? JsonUtility.FromJson<RoomApiResponse>(json);
         }
         catch (Exception e)
         {

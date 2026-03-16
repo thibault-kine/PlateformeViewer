@@ -13,27 +13,20 @@ MonoBehaviour:
   m_Name: Room_Bleu-13
   m_EditorClassIdentifier: Assembly-CSharp::RoomDataSO
   roomCode: Bleu-13
-  roomName: Bleu-13
+  apiCode: Bleu-13-RDC-La-Plateforme-Hangar
+  roomName: La-Plateforme-Hangar-RDC-Bleu-13 (24)
   capacity: 24
   roomType: Salle de travail
-  status: 
-  lastUpdated: 2026-03-11T09:00:00Z
+  status: free
+  lastUpdated: 2026-03-16T11:53:48.4202830Z
   currentEvent:
-    title: Cours Algorithmique
-    start: 2026-03-11T08:00:00Z
-    end: 2026-03-11T10:00:00Z
-    organizer: Mme Martin
+    title: 
+    start: 
+    end: 
+    organizer: 
   nextEvent:
-    title: "Cours D\xE9veloppement Web"
-    start: 2026-03-11T10:30:00Z
-    end: 2026-03-11T12:30:00Z
-    organizer: M. Garcia
-  scheduleToday:
-  - title: Cours Algorithmique
-    start: 2026-03-11T08:00:00Z
-    end: 2026-03-11T10:00:00Z
-    organizer: Mme Martin
-  - title: "Cours D\xE9veloppement Web"
-    start: 2026-03-11T10:30:00Z
-    end: 2026-03-11T12:30:00Z
-    organizer: M. Garcia
+    title: 
+    start: 
+    end: 
+    organizer: 
+  scheduleToday: []

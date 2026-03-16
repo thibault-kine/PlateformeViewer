@@ -3,7 +3,7 @@ import { useState } from 'react';
 const FEATURES = [
   {
     icon: '⬡',
-    title: '39 Salles modélisées',
+    title: 'Salles modélisées',
     desc: 'Chaque salle de La Plateforme est reproduite en 3D et navigable librement.',
   },
   {

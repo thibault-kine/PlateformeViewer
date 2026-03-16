@@ -10,8 +10,9 @@ using UnityEngine;
 public class RoomDataSO : ScriptableObject
 {
     [Header("Room Identity — set once")]
-    public string roomCode;       // e.g. "Vert-01"  — must match API code
-    public string roomName;       // e.g. "Vert-01"
+    public string roomCode;       // short code — matches mock file name + scene object
+    public string apiCode;        // full API code e.g. "Vert-01-RDC-La-Plateforme-Hangar" (leave empty to use roomCode)
+    public string roomName;
     public int capacity;
     public string roomType;       // e.g. "Salle de travail"
 
@@ -33,8 +34,7 @@ public class RoomDataSO : ScriptableObject
             return;
         }
 
-        roomCode     = r.code;
-        roomName     = r.name;
+        // Don't overwrite roomCode or roomName — keep values set in the Inspector
         capacity     = r.capacity;
         roomType     = r.type;
         lastUpdated  = DateTime.UtcNow.ToString("o");

@@ -13,23 +13,20 @@ MonoBehaviour:
   m_Name: Room_Bleu-OpenSpace
   m_EditorClassIdentifier: Assembly-CSharp::RoomDataSO
   roomCode: Bleu-OpenSpace
-  roomName: Bleu-OpenSpace
+  apiCode: Bleu-OpenSpace-RDC-La-Plateforme-Hangar
+  roomName: (OpenSpace)-La-Plateforme-Hangar-RDC-Bleu-OpenSpace (100)
   capacity: 100
   roomType: OpenSpace
-  status: 
-  lastUpdated: 2026-03-11T09:00:00Z
+  status: free
+  lastUpdated: 2026-03-16T11:53:48.7226750Z
   currentEvent:
-    title: Forum des alternances
-    start: 2026-03-11T08:00:00Z
-    end: 2026-03-11T17:00:00Z
-    organizer: Mme Leroy
+    title: 
+    start: 
+    end: 
+    organizer: 
   nextEvent:
     title: 
     start: 
     end: 
     organizer: 
-  scheduleToday:
-  - title: Forum des alternances
-    start: 2026-03-11T08:00:00Z
-    end: 2026-03-11T17:00:00Z
-    organizer: Mme Leroy
+  scheduleToday: []

@@ -15,7 +15,7 @@ MonoBehaviour:
   buildingName: La Plateforme
   apiBaseUrl: http://localhost:8080/api/v1
   apiBaseUrl2: 
-  useMockData: 1
+  useMockData: 0
   refreshInterval: 60
   cameraSpeed: 5
   cameraBoostMultiplier: 3

@@ -13,31 +13,32 @@ MonoBehaviour:
   m_Name: Room_Bleu-11
   m_EditorClassIdentifier: Assembly-CSharp::RoomDataSO
   roomCode: Bleu-11
+  apiCode: Bleu-11-RDC-La-Plateforme-Hangar
   roomName: Bleu-11
   capacity: 24
   roomType: Salle de travail
-  status: 
-  lastUpdated: 2026-03-11T09:00:00Z
+  status: occupied
+  lastUpdated: 2026-03-16T11:53:48.3818650Z
   currentEvent:
-    title: "Cours Cybers\xE9curit\xE9"
-    start: 2026-03-11T08:00:00Z
-    end: 2026-03-11T10:00:00Z
-    organizer: M. Ahmed
+    title: 
+    start: 2026-03-16T11:00:00Z
+    end: 2026-03-16T12:00:00Z
+    organizer: anne-charlotte.berthet@laplateforme.io
   nextEvent:
-    title: "Cours R\xE9seaux"
-    start: 2026-03-11T10:30:00Z
-    end: 2026-03-11T12:30:00Z
-    organizer: M. Dupont
+    title: 
+    start: 2026-03-17T09:00:00Z
+    end: 2026-03-17T10:30:00Z
+    organizer: anne-charlotte.berthet@laplateforme.io
   scheduleToday:
-  - title: "Cours Cybers\xE9curit\xE9"
-    start: 2026-03-11T08:00:00Z
-    end: 2026-03-11T10:00:00Z
-    organizer: M. Ahmed
-  - title: "Cours R\xE9seaux"
-    start: 2026-03-11T10:30:00Z
-    end: 2026-03-11T12:30:00Z
-    organizer: M. Dupont
-  - title: Cours Python
-    start: 2026-03-11T14:00:00Z
-    end: 2026-03-11T16:00:00Z
-    organizer: M. Bernard
+  - title: 
+    start: 2026-03-16T08:00:00Z
+    end: 2026-03-16T10:00:00Z
+    organizer: anne-charlotte.berthet@laplateforme.io
+  - title: 
+    start: 2026-03-16T10:00:00Z
+    end: 2026-03-16T11:00:00Z
+    organizer: anne-charlotte.berthet@laplateforme.io
+  - title: 
+    start: 2026-03-16T11:00:00Z
+    end: 2026-03-16T12:00:00Z
+    organizer: anne-charlotte.berthet@laplateforme.io

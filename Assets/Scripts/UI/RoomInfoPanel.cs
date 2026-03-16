@@ -148,7 +148,7 @@ public class RoomInfoPanel : MonoBehaviour
         section.SetActive(hasEvent);
         if (!hasEvent) return;
 
-        titleText.text     = evt.title;
+        titleText.text     = string.IsNullOrEmpty(evt.title) ? "Réservé" : evt.title;
         timeText.text      = FormatTimeRange(evt.start, evt.end);
         organizerText.text = evt.organizer;
     }
@@ -168,7 +168,7 @@ public class RoomInfoPanel : MonoBehaviour
             if (texts.Length >= 2)
             {
                 texts[0].text = FormatTime(evt.start);
-                texts[1].text = evt.title;
+                texts[1].text = string.IsNullOrEmpty(evt.title) ? "Réservé" : evt.title;
             }
         }
     }
@@ -179,9 +179,10 @@ public class RoomInfoPanel : MonoBehaviour
     {
         if (ApiClient.Instance == null || _currentRoom == null) return;
 
+        string code = !string.IsNullOrEmpty(_currentRoom.apiCode) ? _currentRoom.apiCode : _currentRoom.roomCode;
         ApiClient.Instance.FetchRoom(
             config.apiBaseUrl,
-            _currentRoom.roomCode,
+            code,
             resp => _currentRoom.UpdateFromResponse(resp),
             err =>
             {

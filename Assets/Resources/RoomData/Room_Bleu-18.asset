@@ -13,23 +13,20 @@ MonoBehaviour:
   m_Name: Room_Bleu-18
   m_EditorClassIdentifier: Assembly-CSharp::RoomDataSO
   roomCode: Bleu-18
-  roomName: Bleu-18
+  apiCode: Bleu-18-RDC-La-Plateforme-Hangar
+  roomName: La-Plateforme-Hangar-RDC-Bleu-18 (8)
   capacity: 8
   roomType: "Salle de r\xE9union"
-  status: 
-  lastUpdated: 2026-03-11T09:00:00Z
+  status: free
+  lastUpdated: 2026-03-16T11:53:50.9352720Z
   currentEvent:
-    title: "R\xE9union Innovation"
-    start: 2026-03-11T08:30:00Z
-    end: 2026-03-11T10:30:00Z
-    organizer: M. Garcia
+    title: 
+    start: 
+    end: 
+    organizer: 
   nextEvent:
     title: 
     start: 
     end: 
     organizer: 
-  scheduleToday:
-  - title: "R\xE9union Innovation"
-    start: 2026-03-11T08:30:00Z
-    end: 2026-03-11T10:30:00Z
-    organizer: M. Garcia
+  scheduleToday: []
