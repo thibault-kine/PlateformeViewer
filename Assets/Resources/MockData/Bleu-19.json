@@ -1,0 +1,33 @@
+{
+  "code": "Bleu-19",
+  "name": "Bleu-19",
+  "capacity": 8,
+  "type": "Salle de réunion",
+  "status": "occupied",
+  "current_event": {
+    "title": "Réunion Direction",
+    "start": "2026-03-11T08:00:00Z",
+    "end": "2026-03-11T10:00:00Z",
+    "organizer": "M. Dupont"
+  },
+  "next_event": {
+    "title": "Comité de pilotage",
+    "start": "2026-03-11T10:30:00Z",
+    "end": "2026-03-11T12:00:00Z",
+    "organizer": "M. Dupont"
+  },
+  "schedule_today": [
+    {
+      "title": "Réunion Direction",
+      "start": "2026-03-11T08:00:00Z",
+      "end": "2026-03-11T10:00:00Z",
+      "organizer": "M. Dupont"
+    },
+    {
+      "title": "Comité de pilotage",
+      "start": "2026-03-11T10:30:00Z",
+      "end": "2026-03-11T12:00:00Z",
+      "organizer": "M. Dupont"
+    }
+  ]
+}

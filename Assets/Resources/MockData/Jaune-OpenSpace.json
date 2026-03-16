@@ -1,0 +1,20 @@
+{
+  "code": "Jaune-OpenSpace",
+  "name": "Jaune-OpenSpace",
+  "capacity": 100,
+  "type": "OpenSpace",
+  "status": "free",
+  "current_event": {
+    "title": "",
+    "start": "",
+    "end": "",
+    "organizer": ""
+  },
+  "next_event": {
+    "title": "",
+    "start": "",
+    "end": "",
+    "organizer": ""
+  },
+  "schedule_today": []
+}

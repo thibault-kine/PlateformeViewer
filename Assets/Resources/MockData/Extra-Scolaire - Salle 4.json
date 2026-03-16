@@ -1,0 +1,20 @@
+{
+  "code": "Extra-Scolaire - Salle 4",
+  "name": "Extra-Scolaire - Salle 4",
+  "capacity": 50,
+  "type": "Salle de travail",
+  "status": "free",
+  "current_event": {
+    "title": "",
+    "start": "",
+    "end": "",
+    "organizer": ""
+  },
+  "next_event": {
+    "title": "",
+    "start": "",
+    "end": "",
+    "organizer": ""
+  },
+  "schedule_today": []
+}

@@ -1,0 +1,20 @@
+{
+  "code": "Bleu-20",
+  "name": "Bleu-20",
+  "capacity": 8,
+  "type": "Salle de réunion",
+  "status": "free",
+  "current_event": {
+    "title": "",
+    "start": "",
+    "end": "",
+    "organizer": ""
+  },
+  "next_event": {
+    "title": "",
+    "start": "",
+    "end": "",
+    "organizer": ""
+  },
+  "schedule_today": []
+}

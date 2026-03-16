@@ -1,0 +1,27 @@
+{
+  "code": "Rouge-OpenSpace",
+  "name": "Rouge-OpenSpace",
+  "capacity": 100,
+  "type": "OpenSpace",
+  "status": "free",
+  "current_event": {
+    "title": "",
+    "start": "",
+    "end": "",
+    "organizer": ""
+  },
+  "next_event": {
+    "title": "",
+    "start": "",
+    "end": "",
+    "organizer": ""
+  },
+  "schedule_today": [
+    {
+      "title": "Hackathon IA",
+      "start": "2026-03-11T13:00:00Z",
+      "end": "2026-03-11T18:00:00Z",
+      "organizer": "M. Garcia"
+    }
+  ]
+}

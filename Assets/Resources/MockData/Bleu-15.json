@@ -1,0 +1,27 @@
+{
+  "code": "Bleu-15",
+  "name": "Bleu-15",
+  "capacity": 8,
+  "type": "Salle de réunion",
+  "status": "free",
+  "current_event": {
+    "title": "",
+    "start": "",
+    "end": "",
+    "organizer": ""
+  },
+  "next_event": {
+    "title": "",
+    "start": "",
+    "end": "",
+    "organizer": ""
+  },
+  "schedule_today": [
+    {
+      "title": "Soutenance de projet",
+      "start": "2026-03-11T14:00:00Z",
+      "end": "2026-03-11T16:00:00Z",
+      "organizer": "Mme Martin"
+    }
+  ]
+}

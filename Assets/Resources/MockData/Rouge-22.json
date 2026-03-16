@@ -1,0 +1,27 @@
+{
+  "code": "Rouge-22",
+  "name": "Rouge-22",
+  "capacity": 8,
+  "type": "Salle de réunion",
+  "status": "free",
+  "current_event": {
+    "title": "",
+    "start": "",
+    "end": "",
+    "organizer": ""
+  },
+  "next_event": {
+    "title": "Réunion équipe IA",
+    "start": "2026-03-11T11:00:00Z",
+    "end": "2026-03-11T12:30:00Z",
+    "organizer": "Mme Chen"
+  },
+  "schedule_today": [
+    {
+      "title": "Réunion équipe IA",
+      "start": "2026-03-11T11:00:00Z",
+      "end": "2026-03-11T12:30:00Z",
+      "organizer": "Mme Chen"
+    }
+  ]
+}

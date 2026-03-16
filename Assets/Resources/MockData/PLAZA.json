@@ -1,0 +1,20 @@
+{
+  "code": "PLAZA",
+  "name": "PLAZA",
+  "capacity": 100,
+  "type": "Grande salle",
+  "status": "free",
+  "current_event": {
+    "title": "",
+    "start": "",
+    "end": "",
+    "organizer": ""
+  },
+  "next_event": {
+    "title": "",
+    "start": "",
+    "end": "",
+    "organizer": ""
+  },
+  "schedule_today": []
+}

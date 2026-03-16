@@ -34,6 +34,11 @@
 # Visual Studio cache directory
 .vs/
 
+# Autres IDE
+.idea/
+.vscode/
+*.pidb.meta
+
 # Gradle cache directory
 .gradle/
 
@@ -97,3 +102,22 @@ InitTestScene*.unity*
 
 # Auto-generated scenes by play mode tests
 /[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
+
+.DS_Store
+*.nupkg
+/packages
+/Packages/Microsoft.*
+
+/Builds
+/Build
+/Builds/
+/Build/
+UnityBuild/
+
+node_modules/
+
+# Unity WebGL build output (large binary files, generated locally)
+FrontEnd/public/unity/
+
+# Vite build output
+FrontEnd/dist/

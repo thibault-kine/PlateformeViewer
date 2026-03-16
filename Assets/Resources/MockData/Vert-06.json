@@ -1,0 +1,33 @@
+{
+  "code": "Vert-06",
+  "name": "Vert-06",
+  "capacity": 24,
+  "type": "Salle de travail",
+  "status": "occupied",
+  "current_event": {
+    "title": "Cours Algorithmique",
+    "start": "2026-03-11T08:00:00Z",
+    "end": "2026-03-11T10:00:00Z",
+    "organizer": "Mme Martin"
+  },
+  "next_event": {
+    "title": "Cours Intelligence Artificielle",
+    "start": "2026-03-11T10:30:00Z",
+    "end": "2026-03-11T12:30:00Z",
+    "organizer": "M. Ahmed"
+  },
+  "schedule_today": [
+    {
+      "title": "Cours Algorithmique",
+      "start": "2026-03-11T08:00:00Z",
+      "end": "2026-03-11T10:00:00Z",
+      "organizer": "Mme Martin"
+    },
+    {
+      "title": "Cours Intelligence Artificielle",
+      "start": "2026-03-11T10:30:00Z",
+      "end": "2026-03-11T12:30:00Z",
+      "organizer": "M. Ahmed"
+    }
+  ]
+}

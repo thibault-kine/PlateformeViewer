@@ -1,0 +1,27 @@
+{
+  "code": "Vert-07",
+  "name": "Vert-07",
+  "capacity": 24,
+  "type": "Salle de travail",
+  "status": "free",
+  "current_event": {
+    "title": "",
+    "start": "",
+    "end": "",
+    "organizer": ""
+  },
+  "next_event": {
+    "title": "",
+    "start": "",
+    "end": "",
+    "organizer": ""
+  },
+  "schedule_today": [
+    {
+      "title": "Formation Agile",
+      "start": "2026-03-11T14:00:00Z",
+      "end": "2026-03-11T17:00:00Z",
+      "organizer": "Mme Dumont"
+    }
+  ]
+}

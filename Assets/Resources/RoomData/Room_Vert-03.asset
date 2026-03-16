@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be38ee44e5a3b4b5abb8484ee42e46cb, type: 3}
+  m_Name: Room_Vert-03
+  m_EditorClassIdentifier: Assembly-CSharp::RoomDataSO
+  roomCode: Vert-03
+  apiCode: Vert-03-RDC-La-Plateforme-Hangar
+  roomName: Vert-03
+  capacity: 24
+  roomType: Salle de travail
+  status: free
+  lastUpdated: 2026-03-16T11:53:48.7239870Z
+  currentEvent:
+    title: 
+    start: 
+    end: 
+    organizer: 
+  nextEvent:
+    title: 
+    start: 2026-03-16T12:00:00Z
+    end: 2026-03-16T13:00:00Z
+    organizer: celine.emptoz-lacote.pro@laplateforme.io
+  scheduleToday:
+  - title: 
+    start: 2026-03-16T08:00:00Z
+    end: 2026-03-16T09:00:00Z
+    organizer: celine.emptoz-lacote.pro@laplateforme.io
+  - title: 
+    start: 2026-03-16T09:00:00Z
+    end: 2026-03-16T10:00:00Z
+    organizer: celine.emptoz-lacote.pro@laplateforme.io
+  - title: 
+    start: 2026-03-16T10:00:00Z
+    end: 2026-03-16T11:00:00Z
+    organizer: celine.emptoz-lacote.pro@laplateforme.io
+  - title: 
+    start: 2026-03-16T12:00:00Z
+    end: 2026-03-16T13:00:00Z
+    organizer: celine.emptoz-lacote.pro@laplateforme.io
+  - title: 
+    start: 2026-03-16T13:00:00Z
+    end: 2026-03-16T15:00:00Z
+    organizer: celine.emptoz-lacote.pro@laplateforme.io
