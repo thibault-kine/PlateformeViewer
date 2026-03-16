@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RoomDataSO
   roomCode: SALLE DES SUCRES
   apiCode: SALLE-DES-SUCRES-RDC-La-Plateforme-Hangar
-  roomName: La-Plateforme-Hangar-RDC-SALLE DES SUCRES (250)
+  roomName: SALLE DES SUCRES
   capacity: 250
   roomType: 
   status: free

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RoomDataSO
   roomCode: Rouge-21
   apiCode: Rouge-21-RDC-La-Plateforme-Hangar
-  roomName: La-Plateforme-Hangar-RDC-Rouge-21 (24)
+  roomName: Rouge-21
   capacity: 24
   roomType: Salle de travail
   status: free

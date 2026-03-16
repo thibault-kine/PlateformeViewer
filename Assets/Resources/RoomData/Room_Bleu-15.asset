@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RoomDataSO
   roomCode: Bleu-15
   apiCode: Bleu-15-RDC-La-Plateforme-Hangar
-  roomName: La-Plateforme-Hangar-RDC-Bleu-15 (8)
+  roomName: Bleu-15
   capacity: 8
   roomType: "Salle de r\xE9union"
   status: free

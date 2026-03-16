@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RoomDataSO
   roomCode: Rouge-OpenSpace
   apiCode: Rouge-OpenSpace-RDC-La-Plateforme-Hangar
-  roomName: (OpenSpace)-La-Plateforme-Hangar-RDC-Rouge-OpenSpace (100)
+  roomName: Rouge-OpenSpace
   capacity: 100
   roomType: OpenSpace
   status: free

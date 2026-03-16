@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RoomDataSO
   roomCode: SALLE CABARET
   apiCode: SALLE-CABARET-RDC-La-Plateforme-Hangar
-  roomName: La-Plateforme-Hangar-RDC-SALLE CABARET (100)
+  roomName: SALLE CABARET
   capacity: 100
   roomType: 
   status: free

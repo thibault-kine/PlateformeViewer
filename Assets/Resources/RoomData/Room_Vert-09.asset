@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RoomDataSO
   roomCode: Vert-09
   apiCode: Vert-09-RDC-La-Plateforme-Hangar
-  roomName: La-Plateforme-Hangar-RDC-Vert-09 (8)
+  roomName: Vert-09
   capacity: 8
   roomType: "Salle de r\xE9union"
   status: occupied

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RoomDataSO
   roomCode: PLAZA
   apiCode: PLAZA-RDC-La-Plateforme-Hangar
-  roomName: La-Plateforme-Hangar-RDC-PLAZA (100)
+  roomName: PLAZA
   capacity: 100
   roomType: 
   status: free

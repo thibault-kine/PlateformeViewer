@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RoomDataSO
   roomCode: Vert-08
   apiCode: Vert-08-RDC-La-Plateforme-Hangar
-  roomName: La-Plateforme-Hangar-RDC-Vert-08 (24)
+  roomName: Vert-08
   capacity: 24
   roomType: Salle de travail
   status: free
