@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: Room_Vert-07
   m_EditorClassIdentifier: Assembly-CSharp::RoomDataSO
   roomCode: Vert-07
-  roomName: Vert-07
+  apiCode: Vert-07-RDC-La-Plateforme-Hangar
+  roomName: La-Plateforme-Hangar-RDC-Vert-07 (24)
   capacity: 24
   roomType: Salle de travail
-  status: 
-  lastUpdated: 2026-03-11T09:00:00Z
+  status: free
+  lastUpdated: 2026-03-16T11:53:48.7235440Z
   currentEvent:
     title: 
     start: 
@@ -25,11 +26,15 @@ MonoBehaviour:
     organizer: 
   nextEvent:
     title: 
-    start: 
-    end: 
-    organizer: 
+    start: 2026-03-16T13:00:00Z
+    end: 2026-03-16T15:00:00Z
+    organizer: celine.emptoz-lacote.pro@laplateforme.io
   scheduleToday:
-  - title: Formation Agile
-    start: 2026-03-11T14:00:00Z
-    end: 2026-03-11T17:00:00Z
-    organizer: Mme Dumont
+  - title: 
+    start: 2026-03-16T08:00:00Z
+    end: 2026-03-16T09:00:00Z
+    organizer: celine.emptoz-lacote.pro@laplateforme.io
+  - title: 
+    start: 2026-03-16T13:00:00Z
+    end: 2026-03-16T15:00:00Z
+    organizer: celine.emptoz-lacote.pro@laplateforme.io

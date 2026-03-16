@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: Room_Rouge-OpenSpace
   m_EditorClassIdentifier: Assembly-CSharp::RoomDataSO
   roomCode: Rouge-OpenSpace
-  roomName: Rouge-OpenSpace
+  apiCode: Rouge-OpenSpace-RDC-La-Plateforme-Hangar
+  roomName: (OpenSpace)-La-Plateforme-Hangar-RDC-Rouge-OpenSpace (100)
   capacity: 100
   roomType: OpenSpace
-  status: 
-  lastUpdated: 2026-03-11T09:00:00Z
+  status: free
+  lastUpdated: 2026-03-16T11:53:48.7227150Z
   currentEvent:
     title: 
     start: 
@@ -28,8 +29,4 @@ MonoBehaviour:
     start: 
     end: 
     organizer: 
-  scheduleToday:
-  - title: Hackathon IA
-    start: 2026-03-11T13:00:00Z
-    end: 2026-03-11T18:00:00Z
-    organizer: M. Garcia
+  scheduleToday: []

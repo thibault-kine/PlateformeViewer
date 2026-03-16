@@ -13,27 +13,20 @@ MonoBehaviour:
   m_Name: Room_Bleu-12
   m_EditorClassIdentifier: Assembly-CSharp::RoomDataSO
   roomCode: Bleu-12
+  apiCode: Bleu-12-RDC-La-Plateforme-Hangar
   roomName: Bleu-12
   capacity: 24
   roomType: Salle de travail
-  status: 
-  lastUpdated: 2026-03-11T09:00:00Z
+  status: free
+  lastUpdated: 2026-03-16T11:55:07.6951190Z
   currentEvent:
     title: 
     start: 
     end: 
     organizer: 
   nextEvent:
-    title: Cours Intelligence Artificielle
-    start: 2026-03-11T10:30:00Z
-    end: 2026-03-11T12:30:00Z
-    organizer: M. Ahmed
-  scheduleToday:
-  - title: Cours Intelligence Artificielle
-    start: 2026-03-11T10:30:00Z
-    end: 2026-03-11T12:30:00Z
-    organizer: M. Ahmed
-  - title: Formation Agile
-    start: 2026-03-11T14:00:00Z
-    end: 2026-03-11T17:00:00Z
-    organizer: Mme Dumont
+    title: 
+    start: 
+    end: 
+    organizer: 
+  scheduleToday: []

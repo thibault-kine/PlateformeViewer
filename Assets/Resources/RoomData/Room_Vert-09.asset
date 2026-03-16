@@ -13,27 +13,24 @@ MonoBehaviour:
   m_Name: Room_Vert-09
   m_EditorClassIdentifier: Assembly-CSharp::RoomDataSO
   roomCode: Vert-09
-  roomName: Vert-09
+  apiCode: Vert-09-RDC-La-Plateforme-Hangar
+  roomName: La-Plateforme-Hangar-RDC-Vert-09 (8)
   capacity: 8
   roomType: "Salle de r\xE9union"
-  status: 
-  lastUpdated: 2026-03-11T09:00:00Z
+  status: occupied
+  lastUpdated: 2026-03-16T11:53:48.7236460Z
   currentEvent:
-    title: "R\xE9union d'\xE9quipe"
-    start: 2026-03-11T08:30:00Z
-    end: 2026-03-11T10:00:00Z
-    organizer: M. Dupont
+    title: 
+    start: 2026-03-16T08:00:00Z
+    end: 2026-03-16T16:00:00Z
+    organizer: celine.emptoz-lacote.pro@laplateforme.io
   nextEvent:
     title: 
-    start: 
-    end: 
-    organizer: 
+    start: 2026-03-17T08:00:00Z
+    end: 2026-03-17T16:00:00Z
+    organizer: celine.emptoz-lacote.pro@laplateforme.io
   scheduleToday:
-  - title: "R\xE9union d'\xE9quipe"
-    start: 2026-03-11T08:30:00Z
-    end: 2026-03-11T10:00:00Z
-    organizer: M. Dupont
-  - title: Soutenance de projet
-    start: 2026-03-11T14:00:00Z
-    end: 2026-03-11T16:00:00Z
-    organizer: Mme Martin
+  - title: 
+    start: 2026-03-16T08:00:00Z
+    end: 2026-03-16T16:00:00Z
+    organizer: celine.emptoz-lacote.pro@laplateforme.io

@@ -13,27 +13,40 @@ MonoBehaviour:
   m_Name: Room_Vert-03
   m_EditorClassIdentifier: Assembly-CSharp::RoomDataSO
   roomCode: Vert-03
-  roomName: Vert-03
+  apiCode: Vert-03-RDC-La-Plateforme-Hangar
+  roomName: La-Plateforme-Hangar-RDC-Vert-03 (24)
   capacity: 24
   roomType: Salle de travail
-  status: 
-  lastUpdated: 2026-03-11T09:00:00Z
+  status: free
+  lastUpdated: 2026-03-16T11:53:48.7239870Z
   currentEvent:
     title: 
     start: 
     end: 
     organizer: 
   nextEvent:
-    title: "Cours D\xE9veloppement Web"
-    start: 2026-03-11T10:30:00Z
-    end: 2026-03-11T12:30:00Z
-    organizer: M. Garcia
+    title: 
+    start: 2026-03-16T12:00:00Z
+    end: 2026-03-16T13:00:00Z
+    organizer: celine.emptoz-lacote.pro@laplateforme.io
   scheduleToday:
-  - title: "Cours D\xE9veloppement Web"
-    start: 2026-03-11T10:30:00Z
-    end: 2026-03-11T12:30:00Z
-    organizer: M. Garcia
-  - title: Atelier Unity
-    start: 2026-03-11T14:00:00Z
-    end: 2026-03-11T17:00:00Z
-    organizer: Mme Chen
+  - title: 
+    start: 2026-03-16T08:00:00Z
+    end: 2026-03-16T09:00:00Z
+    organizer: celine.emptoz-lacote.pro@laplateforme.io
+  - title: 
+    start: 2026-03-16T09:00:00Z
+    end: 2026-03-16T10:00:00Z
+    organizer: celine.emptoz-lacote.pro@laplateforme.io
+  - title: 
+    start: 2026-03-16T10:00:00Z
+    end: 2026-03-16T11:00:00Z
+    organizer: celine.emptoz-lacote.pro@laplateforme.io
+  - title: 
+    start: 2026-03-16T12:00:00Z
+    end: 2026-03-16T13:00:00Z
+    organizer: celine.emptoz-lacote.pro@laplateforme.io
+  - title: 
+    start: 2026-03-16T13:00:00Z
+    end: 2026-03-16T15:00:00Z
+    organizer: celine.emptoz-lacote.pro@laplateforme.io

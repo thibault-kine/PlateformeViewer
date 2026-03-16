@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: Room_Jaune-OpenSpace
   m_EditorClassIdentifier: Assembly-CSharp::RoomDataSO
   roomCode: Jaune-OpenSpace
-  roomName: Jaune-OpenSpace
+  apiCode: Jaune-OpenSpace-RDC-La-Plateforme-Hangar
+  roomName: (OpenSpace)-La-Plateforme-Hangar-RDC-Jaune-OpenSpace (100)
   capacity: 100
   roomType: OpenSpace
-  status: 
-  lastUpdated: 2026-03-11T09:00:00Z
+  status: free
+  lastUpdated: 2026-03-16T11:53:48.7223510Z
   currentEvent:
     title: 
     start: 
@@ -25,7 +26,19 @@ MonoBehaviour:
     organizer: 
   nextEvent:
     title: 
-    start: 
-    end: 
-    organizer: 
-  scheduleToday: []
+    start: 2026-03-16T13:00:00Z
+    end: 2026-03-16T14:30:00Z
+    organizer: celine.emptoz-lacote.pro@laplateforme.io
+  scheduleToday:
+  - title: 
+    start: 2026-03-16T08:30:00Z
+    end: 2026-03-16T09:30:00Z
+    organizer: celine.emptoz-lacote.pro@laplateforme.io
+  - title: 
+    start: 2026-03-16T13:00:00Z
+    end: 2026-03-16T14:30:00Z
+    organizer: celine.emptoz-lacote.pro@laplateforme.io
+  - title: 
+    start: 2026-03-16T15:00:00Z
+    end: 2026-03-16T16:00:00Z
+    organizer: celine.emptoz-lacote.pro@laplateforme.io

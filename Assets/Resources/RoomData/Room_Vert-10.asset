@@ -13,23 +13,24 @@ MonoBehaviour:
   m_Name: Room_Vert-10
   m_EditorClassIdentifier: Assembly-CSharp::RoomDataSO
   roomCode: Vert-10
-  roomName: Vert-10
+  apiCode: Vert-10-RDC-La-Plateforme-Hangar
+  roomName: La-Plateforme-Hangar-RDC-Vert-10 (24)
   capacity: 24
   roomType: Salle de travail
-  status: 
-  lastUpdated: 2026-03-11T09:00:00Z
+  status: free
+  lastUpdated: 2026-03-16T11:53:48.7237280Z
   currentEvent:
     title: 
     start: 
     end: 
     organizer: 
   nextEvent:
-    title: "Cours D\xE9veloppement Web"
-    start: 2026-03-11T10:30:00Z
-    end: 2026-03-11T12:30:00Z
-    organizer: M. Garcia
+    title: 
+    start: 
+    end: 
+    organizer: 
   scheduleToday:
-  - title: "Cours D\xE9veloppement Web"
-    start: 2026-03-11T10:30:00Z
-    end: 2026-03-11T12:30:00Z
-    organizer: M. Garcia
+  - title: 
+    start: 2026-03-16T10:00:00Z
+    end: 2026-03-16T11:30:00Z
+    organizer: celine.emptoz-lacote.pro@laplateforme.io

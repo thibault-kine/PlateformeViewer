@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: Room_Bleu-15
   m_EditorClassIdentifier: Assembly-CSharp::RoomDataSO
   roomCode: Bleu-15
-  roomName: Bleu-15
+  apiCode: Bleu-15-RDC-La-Plateforme-Hangar
+  roomName: La-Plateforme-Hangar-RDC-Bleu-15 (8)
   capacity: 8
   roomType: "Salle de r\xE9union"
-  status: 
-  lastUpdated: 2026-03-11T09:00:00Z
+  status: free
+  lastUpdated: 2026-03-16T11:53:48.7240800Z
   currentEvent:
     title: 
     start: 
@@ -25,11 +26,15 @@ MonoBehaviour:
     organizer: 
   nextEvent:
     title: 
-    start: 
-    end: 
-    organizer: 
+    start: 2026-03-17T08:00:00Z
+    end: 2026-03-17T08:30:00Z
+    organizer: tiffani.lamouroux.pro@laplateforme.io
   scheduleToday:
-  - title: Soutenance de projet
-    start: 2026-03-11T14:00:00Z
-    end: 2026-03-11T16:00:00Z
-    organizer: Mme Martin
+  - title: 
+    start: 2026-03-16T08:00:00Z
+    end: 2026-03-16T09:00:00Z
+    organizer: olivia.ygrec@laplateforme.io
+  - title: 
+    start: 2026-03-16T09:00:00Z
+    end: 2026-03-16T10:00:00Z
+    organizer: melaine.yourid@laplateforme.io

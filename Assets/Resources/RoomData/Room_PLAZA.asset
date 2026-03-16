@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: Room_PLAZA
   m_EditorClassIdentifier: Assembly-CSharp::RoomDataSO
   roomCode: PLAZA
-  roomName: PLAZA
+  apiCode: PLAZA-RDC-La-Plateforme-Hangar
+  roomName: La-Plateforme-Hangar-RDC-PLAZA (100)
   capacity: 100
-  roomType: Grande salle
-  status: 
-  lastUpdated: 2026-03-11T09:00:00Z
+  roomType: 
+  status: free
+  lastUpdated: 2026-03-16T11:53:48.7224190Z
   currentEvent:
     title: 
     start: 
@@ -28,4 +29,8 @@ MonoBehaviour:
     start: 
     end: 
     organizer: 
-  scheduleToday: []
+  scheduleToday:
+  - title: "Court M\xE9trage "
+    start: 2026-03-16T07:00:00Z
+    end: 2026-03-16T11:00:00Z
+    organizer: emma.tellier@laplateforme.io

@@ -13,27 +13,20 @@ MonoBehaviour:
   m_Name: Room_SALLE CABARET
   m_EditorClassIdentifier: Assembly-CSharp::RoomDataSO
   roomCode: SALLE CABARET
-  roomName: SALLE CABARET
+  apiCode: SALLE-CABARET-RDC-La-Plateforme-Hangar
+  roomName: La-Plateforme-Hangar-RDC-SALLE CABARET (100)
   capacity: 100
-  roomType: Grande salle
-  status: 
-  lastUpdated: 2026-03-11T09:00:00Z
+  roomType: 
+  status: free
+  lastUpdated: 2026-03-16T11:53:48.7227510Z
   currentEvent:
-    title: "Pr\xE9sentation de projets"
-    start: 2026-03-11T08:00:00Z
-    end: 2026-03-11T12:00:00Z
-    organizer: Mme Martin
+    title: 
+    start: 
+    end: 
+    organizer: 
   nextEvent:
     title: 
     start: 
     end: 
     organizer: 
-  scheduleToday:
-  - title: "Pr\xE9sentation de projets"
-    start: 2026-03-11T08:00:00Z
-    end: 2026-03-11T12:00:00Z
-    organizer: Mme Martin
-  - title: "Remise des dipl\xF4mes"
-    start: 2026-03-11T14:00:00Z
-    end: 2026-03-11T17:00:00Z
-    organizer: M. Dupont
+  scheduleToday: []

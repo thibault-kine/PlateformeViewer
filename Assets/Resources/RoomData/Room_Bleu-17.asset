@@ -13,27 +13,20 @@ MonoBehaviour:
   m_Name: Room_Bleu-17
   m_EditorClassIdentifier: Assembly-CSharp::RoomDataSO
   roomCode: Bleu-17
-  roomName: Bleu-17
+  apiCode: Bleu-17-RDC-La-Plateforme-Hangar
+  roomName: La-Plateforme-Hangar-RDC-Bleu-17 (8)
   capacity: 8
   roomType: "Salle de r\xE9union"
-  status: 
-  lastUpdated: 2026-03-11T09:00:00Z
+  status: free
+  lastUpdated: 2026-03-16T11:53:48.7220300Z
   currentEvent:
     title: 
     start: 
     end: 
     organizer: 
   nextEvent:
-    title: Entretien RH
-    start: 2026-03-11T11:00:00Z
-    end: 2026-03-11T12:00:00Z
-    organizer: Mme Chen
-  scheduleToday:
-  - title: Entretien RH
-    start: 2026-03-11T11:00:00Z
-    end: 2026-03-11T12:00:00Z
-    organizer: Mme Chen
-  - title: Entretien alternance
-    start: 2026-03-11T14:00:00Z
-    end: 2026-03-11T15:00:00Z
-    organizer: Mme Chen
+    title: 
+    start: 
+    end: 
+    organizer: 
+  scheduleToday: []
